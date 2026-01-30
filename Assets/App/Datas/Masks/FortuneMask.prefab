@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1085947642461033833}
   - component: {fileID: 8158936412557082021}
   m_Layer: 0
-  m_Name: CriticalStrikeMask
+  m_Name: FortuneMask
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44,4 +44,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30e09a1e0097c1046a258d0a0a06ce3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CriticalChancePerLevel: 0.2
+  m_ModifierType: 1
+  m_Stat: 2
+  m_StatValuePerLevel: 0.15
