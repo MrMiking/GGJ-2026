@@ -49,6 +49,9 @@ namespace GGJ2026
 
         private void OnValidate()
         {
+            if (HealthPoints == null)
+                return;
+
             HealthPoints.BaseValue = m_HealthPoints;
             MovementSpeed.BaseValue = m_MovementSpeed;
             GoldLootRate.BaseValue = 1;
