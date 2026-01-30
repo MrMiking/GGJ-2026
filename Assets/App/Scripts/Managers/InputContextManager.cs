@@ -9,7 +9,7 @@ public enum UIContext
     Menu,
 }
 
-public class UIContextManager : PersistantSingleton<UIContextManager>
+public class UIContextManager : RegularSingleton<UIContextManager>
 {
     [Header("References")]
     [SerializeField] private InputActionAsset inputAsset;
