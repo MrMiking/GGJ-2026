@@ -8,13 +8,23 @@ namespace GGJ2026
 
         public override void OnMaskAttached(in MaskAttachContext context)
         {
-            // context.player.Stats.CriticalChance.AddModifier(...)
+            var characterStats = GetComponentInParent<CharacterStats>();
+            if (characterStats != null) 
+            {
+                var value = CriticalChancePerLevel * (Level + 1);
+                characterStats.CriticalChance.AddModifier(new StatModifier(value, StatModifierType.Flat, this));
+            }
         }
 
         public override void OnLevelChange()
         {
-            // context.player.Stats.CriticalChance.RemoveModifier(...)
-            // context.player.Stats.CriticalChance.AddModifier(...)
+            var characterStats = GetComponentInParent<CharacterStats>();
+            if (characterStats != null)
+            {
+                var value = CriticalChancePerLevel * (Level + 1);
+                characterStats.CriticalChance.RemoveAllModifiersFromSource(this);
+                characterStats.CriticalChance.AddModifier(new StatModifier(value, StatModifierType.Flat, this));
+            }
         }
     }
 }
