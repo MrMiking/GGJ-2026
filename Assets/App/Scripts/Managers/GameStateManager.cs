@@ -6,7 +6,8 @@ public enum GameState { Playing, Shop, Pause }
 
 public class GameStateManager : RegularSingleton<GameStateManager>
 {
-    [Header("References")]
+    [Header("Inputs")]
+    [SerializeField] private bool m_HideCursor = false;
     [SerializeField] private InputActionAsset m_InputAsset;
 
     private readonly Stack<GameState> m_ContextStack = new Stack<GameState>();
@@ -68,8 +69,11 @@ public class GameStateManager : RegularSingleton<GameStateManager>
             action.Enable();
         }
 
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        if (m_HideCursor)
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
     }
 
     private void EnableUI()
