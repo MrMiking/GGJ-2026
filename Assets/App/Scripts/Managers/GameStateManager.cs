@@ -2,21 +2,18 @@ using System.Collections.Generic;
 using UnityEngine.InputSystem;
 using UnityEngine;
 
-public enum UIContext
-{
-    Game,
-    Shop,
-    Menu,
-}
+public enum GameState { Playing, Shop, Pause }
 
-public class UIContextManager : RegularSingleton<UIContextManager>
+public class GameStateManager : RegularSingleton<GameStateManager>
 {
     [Header("References")]
     [SerializeField] private InputActionAsset m_InputAsset;
 
-    private readonly Stack<UIContext> m_ContextStack = new Stack<UIContext>();
+    private readonly Stack<GameState> m_ContextStack = new Stack<GameState>();
     private InputActionMap m_PlayerMap;
     private InputActionMap m_UIMap;
+    
+    public GameState CurrentState => m_ContextStack.Peek();
 
     protected override void Awake()
     {
@@ -24,30 +21,32 @@ public class UIContextManager : RegularSingleton<UIContextManager>
         
         m_PlayerMap = m_InputAsset.FindActionMap("Player");
         m_UIMap = m_InputAsset.FindActionMap("UI");
-
-        PushContext(UIContext.Game);
+        
+        PushContext(GameState.Playing);
     }
 
-    public void PushContext(UIContext context)
+    public void PushContext(GameState context)
     {
+        Debug.Log("Push Context " + context);
         m_ContextStack.Push(context);
         ApplyContext(context);
     }
 
-    public void PopContext(UIContext context)
+    public void PopContext(GameState context)
     {
         if (m_ContextStack.Count == 0) return;
         if (m_ContextStack.Peek() != context) return;
 
+        Debug.Log("Pop Context " + context);
         m_ContextStack.Pop();
         ApplyContext(m_ContextStack.Peek());
     }
 
-    private void ApplyContext(UIContext context)
+    private void ApplyContext(GameState context)
     {
         switch (context)
         {
-            case UIContext.Game:
+            case GameState.Playing:
                 EnableGame();
                 break;
             default:
@@ -58,8 +57,8 @@ public class UIContextManager : RegularSingleton<UIContextManager>
 
     private void EnableGame()
     {
-        Debug.Log("Enable Game Context");
-
+        Time.timeScale = 1;
+        
         m_PlayerMap.Enable();
         m_UIMap.Disable();
 
@@ -75,8 +74,8 @@ public class UIContextManager : RegularSingleton<UIContextManager>
 
     private void EnableUI()
     {
-        Debug.Log("Enable UI Context");
-
+        Time.timeScale = 0;
+        
         m_PlayerMap.Disable();
         m_UIMap.Enable();
 
