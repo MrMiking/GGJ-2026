@@ -24,7 +24,6 @@ public class PlayerController : RegularSingleton<PlayerController>
     public float dashForce = 50f;
 
     [Header("Shoot Settings")]
-    public float bulletSpeed = 20f;
     public float bulletLifetime = 2f;
 
     private Vector2 mousePointer;
@@ -79,7 +78,7 @@ public class PlayerController : RegularSingleton<PlayerController>
     {
         StartCoroutine(ShootCooldown());
         Rigidbody2D rb = Instantiate(bulletPrefabRb, attackPoint.position, attackPoint.rotation);
-        rb.AddForce(rb.transform.up * bulletSpeed, ForceMode2D.Impulse);
+        rb.AddForce(rb.transform.up * characterStats.BulletSpeed.Value, ForceMode2D.Impulse);
         Destroy(rb.gameObject, bulletLifetime);
     }
 

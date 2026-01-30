@@ -270,6 +270,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerPos: {fileID: 1497451078}
+  timeOffset: 0.2
 --- !u!1 &547832688
 GameObject:
   m_ObjectHideFlags: 0
@@ -511,6 +512,7 @@ GameObject:
   - component: {fileID: 1497451078}
   - component: {fileID: 1497451077}
   - component: {fileID: 1497451076}
+  - component: {fileID: 1497451079}
   - component: {fileID: 1497451075}
   m_Layer: 0
   m_Name: p_Player
@@ -538,11 +540,8 @@ MonoBehaviour:
   moveIA: {fileID: -1680190386980627800, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   dashIA: {fileID: -2099379676528639254, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   mousePointerIA: {fileID: 3619435912107149151, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
-  speed: 10
   health: 100
   dashForce: 20
-  shootCooldown: 0.5
-  bulletSpeed: 10
   bulletLifetime: 2
   canShoot: 1
 --- !u!50 &1497451076
@@ -643,6 +642,28 @@ Transform:
   - {fileID: 1109144696}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1497451079
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1497451074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa2ff58d371ff4d4caf82b41d4378ef7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HealthPoints: 50
+  m_MovementSpeed: 3
+  m_GoldLootRange: 8
+  m_BulletDamage: 5
+  m_FireRate: 2
+  m_BulletSpeed: 10
+  m_BulletSize: 1
+  m_BulletBounce: 0
+  m_BulletPierce: 5
+  m_BulletSpread: 1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
