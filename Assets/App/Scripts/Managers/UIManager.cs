@@ -10,12 +10,12 @@ public class UIManager : MonoBehaviour
 
     private void OnEnable()
     {
-        GameManager.OnGoldChange += SetGoldText;
+        GameManager.Instance.OnGoldChange += SetGoldText;
     }
 
     private void OnDisable()
     {
-        GameManager.OnGoldChange -= SetGoldText;
+        GameManager.Instance.OnGoldChange -= SetGoldText;
     }
 
     private void SetGoldText(int amount)
