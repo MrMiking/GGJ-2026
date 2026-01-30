@@ -12,35 +12,35 @@ public enum UIContext
 public class UIContextManager : RegularSingleton<UIContextManager>
 {
     [Header("References")]
-    [SerializeField] private InputActionAsset inputAsset;
+    [SerializeField] private InputActionAsset m_InputAsset;
 
-    private readonly Stack<UIContext> contextStack = new Stack<UIContext>();
-    private InputActionMap playerMap;
-    private InputActionMap uiMap;
+    private readonly Stack<UIContext> m_ContextStack = new Stack<UIContext>();
+    private InputActionMap m_PlayerMap;
+    private InputActionMap m_UIMap;
 
     protected override void Awake()
     {
         base.Awake();
         
-        playerMap = inputAsset.FindActionMap("Player");
-        uiMap = inputAsset.FindActionMap("UI");
+        m_PlayerMap = m_InputAsset.FindActionMap("Player");
+        m_UIMap = m_InputAsset.FindActionMap("UI");
 
         PushContext(UIContext.Game);
     }
 
     public void PushContext(UIContext context)
     {
-        contextStack.Push(context);
+        m_ContextStack.Push(context);
         ApplyContext(context);
     }
 
     public void PopContext(UIContext context)
     {
-        if (contextStack.Count == 0) return;
-        if (contextStack.Peek() != context) return;
+        if (m_ContextStack.Count == 0) return;
+        if (m_ContextStack.Peek() != context) return;
 
-        contextStack.Pop();
-        ApplyContext(contextStack.Peek());
+        m_ContextStack.Pop();
+        ApplyContext(m_ContextStack.Peek());
     }
 
     private void ApplyContext(UIContext context)
@@ -60,10 +60,10 @@ public class UIContextManager : RegularSingleton<UIContextManager>
     {
         Debug.Log("Enable Game Context");
 
-        playerMap.Enable();
-        uiMap.Disable();
+        m_PlayerMap.Enable();
+        m_UIMap.Disable();
 
-        foreach (var action in playerMap.actions)
+        foreach (var action in m_PlayerMap.actions)
         {
             action.Disable();
             action.Enable();
@@ -77,10 +77,10 @@ public class UIContextManager : RegularSingleton<UIContextManager>
     {
         Debug.Log("Enable UI Context");
 
-        playerMap.Disable();
-        uiMap.Enable();
+        m_PlayerMap.Disable();
+        m_UIMap.Enable();
 
-        foreach (var action in uiMap.actions)
+        foreach (var action in m_UIMap.actions)
         {
             action.Disable();
             action.Enable();
