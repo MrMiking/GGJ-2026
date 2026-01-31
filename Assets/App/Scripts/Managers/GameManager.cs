@@ -16,7 +16,9 @@ public class GameManager : RegularSingleton<GameManager>
     [SerializeField] private Image m_SliderVisual;
     
     private float m_CurrentTime = 0f;
-
+    private int m_Level;
+    
+    
     public int CurrentGold
     {
         get => m_CurrentGold;
@@ -25,6 +27,12 @@ public class GameManager : RegularSingleton<GameManager>
             m_CurrentGold = value;
             OnGoldChange?.Invoke(m_CurrentGold);
         }
+    }
+
+    public int Level
+    {
+        get => m_Level;
+        set => m_Level = value;
     }
     
     public event Action<int> OnGoldChange;

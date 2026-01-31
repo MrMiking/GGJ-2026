@@ -39,6 +39,7 @@ namespace GGJ2026
         {
             GameStateManager.Instance.PushContext(GameState.Shop);
             m_ShopPanel.SetActive(true);
+            SetupShop();
         }
 
         [Button]
@@ -51,11 +52,11 @@ namespace GGJ2026
         public void Reroll()
         {
             // TODO: Vérifier la monnaie ici
-            UpdateShop();
+            SetupShop();
             m_Pricing.Increment();
         }
 
-        private void UpdateShop()
+        private void SetupShop()
         {
             foreach (var slot in m_Slots)
             {
@@ -65,13 +66,27 @@ namespace GGJ2026
                 slot.Setup(randomMask, level);
             }
         }
+
+        private void RefreshVisual()
+        {
+            foreach (var slot in m_Slots)
+            {
+                if (slot.CurrentMask == null) continue;
+                int level = GetMaskLevelInInventory(slot.CurrentMask);
+                slot.Setup(slot.CurrentMask, level);
+                
+                Debug.Log("---->"+slot.CurrentMask.name + level);
+            }
+        }
         
         private int GetMaskLevelInInventory(Mask mask)
         {
             for (int i = 0; i < MaskInventory.InventorySize; i++)
             {
-                if (m_Inventory[i] == mask) 
+                if (m_Inventory[i] == mask)
+                {
                     return m_Inventory.GetMaskLevel(i);
+                }
             }
             return 0;
         }
@@ -93,6 +108,8 @@ namespace GGJ2026
             {
                 Debug.Log("Inventory Full !");
             }
+            
+            RefreshVisual();
         }
     }
 }

@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,13 +9,15 @@ namespace GGJ2026
         [Header("References")]
         [SerializeField] private Image m_Icon;
         [SerializeField] private GameObject[] m_StarVisuals;
-        public Mask CurrentMask { get; private set; }
+        [SerializeField] private TextMeshProUGUI m_PriceText;
+        public Mask CurrentMask;
 
         public void Setup(Mask mask, int currentLevel)
         {
             CurrentMask = mask;
             m_Icon.sprite = mask.Sprite;
             m_Icon.enabled = true;
+            m_PriceText.text = $"${mask.Price * mask.PricePerLevel[currentLevel]}";
 
             DisableStars();
 

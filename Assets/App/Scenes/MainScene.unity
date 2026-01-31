@@ -300,6 +300,7 @@ MonoBehaviour:
   - {fileID: 2042101130}
   - {fileID: 1240681128}
   - {fileID: 1048985772}
+  m_PriceText: {fileID: 1446036753}
 --- !u!114 &130854130
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -319,7 +320,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -964,6 +965,7 @@ MonoBehaviour:
   - {fileID: 1485416062}
   - {fileID: 869019832}
   - {fileID: 1890728819}
+  m_PriceText: {fileID: 1776075936}
 --- !u!114 &328086408
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -983,7 +985,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -2686,7 +2688,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 6419399819209381701, guid: 4b126e1954292984aa58641ea34195c9, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -6008,6 +6010,7 @@ MonoBehaviour:
   - {fileID: 1460018941}
   - {fileID: 163918641}
   - {fileID: 1647266344}
+  m_PriceText: {fileID: 1035732309}
 --- !u!114 &1845881336
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6327,7 +6330,7 @@ GameObject:
   - component: {fileID: 1937041964}
   - component: {fileID: 1937041966}
   m_Layer: 5
-  m_Name: CardsPanel
+  m_Name: MaskPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -1,145 +1,108 @@
-using System.Collections;
+using System;
+using MVsToolkit.Utilities;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
-public class EnemyWave : MonoBehaviour
+namespace GGJ2026
 {
-    [SerializeField] private GameObject Enemy;
-
-    [SerializeField] private float newWaveCooldown;
-
-    public int waveCount = 0;
-    public float spawnCooldown = 5f;
-    public int currentEnemyAmount = 0;
-    public int maxEnemyAmount = 0;
-    public int minEnemyAmount = 0;
-    public int enemiesPerSpawn = 1;
-    public bool canSpawn = true;
-    private Vector2 spawnArea;
-
-    private void Start()
+    public sealed class EnemyWave: RegularSingleton<EnemyWave>
     {
-        NewWave(1);
-        StartCoroutine(SpawnCooldown());
-    }
+        [Header("Settings")]
+        [SerializeField] private SSO_WaveConfig[] m_WavesConfig;
+        [Space] 
+        [SerializeField] private float m_RadiusSpawnOffset;
+        [Space]
+        [SerializeField] private bool m_AutoStartOnAwake = true;
 
-    private void Update()
-    {
-        if (currentEnemyAmount < minEnemyAmount)
+        private SSO_WaveConfig CurrentWaveConfig => m_WavesConfig[Mathf.Min(m_WavesConfig.Length - 1, IndexWave)];
+        private int MaxEnemyAmount => m_WavesConfig[Mathf.Min(m_WavesConfig.Length - 1, IndexWave)].EnemiesCount;
+        private int IndexWave => GameManager.Instance ? GameManager.Instance.Level : 0;
+
+        private int CurrentEnemyAmount => EnemyManager.Instance.EnemyCount;
+        
+        private bool m_CanSpawn = true;
+        
+        private float m_TimerWave = 0f;
+        private int m_BurstSpawned = 0;
+    
+        private void OnEnable()
         {
-            SpawnEnemy();
+            if (m_AutoStartOnAwake) StartWaveSystem();
         }
-        else if (currentEnemyAmount > maxEnemyAmount)
+        
+        private void OnDisable()
         {
-            canSpawn = false;
+            StopWaveSystem();
         }
-        else
+        
+        public void StartWaveSystem()
         {
-            canSpawn = true;
+            m_CanSpawn = true;
+            m_TimerWave = 0f;
+            m_BurstSpawned = 0;
         }
-    }
-
-    //Wave Management
-
-    private IEnumerator NewWaveCooldown()
-    {
-        yield return new WaitForSeconds(newWaveCooldown);
-        yield return new WaitUntil(() => canSpawn == true);
-        NewWave(waveCount + 1);
-    }
-
-    private void NewWave(int i)
-    {
-        waveCount = i;
-        switch (i)
+        
+        public void StopWaveSystem()
         {
-            case 1:
-                minEnemyAmount = 3;
-                maxEnemyAmount = 5;
-                enemiesPerSpawn = 1;
-                break;
-            case 2:
-                minEnemyAmount = 5;
-                maxEnemyAmount = 8;
-                enemiesPerSpawn = 2;
-                break;
-            case 3:
-                minEnemyAmount = 8;
-                maxEnemyAmount = 12;
-                enemiesPerSpawn = 3;
-                break;
-            case 4:
-                minEnemyAmount = 12;
-                maxEnemyAmount = 16;
-                enemiesPerSpawn = 4;
-                break;
-            case 5:
-                minEnemyAmount = 16;
-                maxEnemyAmount = 20;
-                enemiesPerSpawn = 5;
-                break;
-            default:
-                minEnemyAmount += 5;
-                maxEnemyAmount += 5;
-                enemiesPerSpawn += 1;
-                break;
+            m_CanSpawn = false;
         }
-        StartCoroutine(NewWaveCooldown());
-    }
-
-
-    //SPAWN LOOP
-    private IEnumerator SpawnCooldown()
-    {
-        yield return new WaitForSeconds(spawnCooldown);
-        yield return new WaitUntil(() => canSpawn == true);
-        SpawnEnemies(enemiesPerSpawn);
-    }
-
-    private void SpawnEnemies(int enemiesAmount)
-    {
-        for (int i = 0; i < enemiesAmount; i++)
+        
+        private void Update()
         {
-            SpawnEnemy();
+            if (!m_CanSpawn) return;
+            if (CurrentEnemyAmount < MaxEnemyAmount) SpawnEnemies(MaxEnemyAmount - CurrentEnemyAmount);
+            if (CanSpawnBurst())
+            {
+                SpawnEnemies(CurrentWaveConfig.Bursts[m_BurstSpawned].BurstCount);
+                m_BurstSpawned++;
+            }
         }
 
-        StartCoroutine(SpawnCooldown());
-    }
-
-    private void SpawnEnemy()
-    {
-
-        Vector2 spawnPosition = RandomSpawnPosition();
-
-        GameObject newEnemy = Instantiate(Enemy);
-        newEnemy.transform.position = spawnPosition;
-
-        currentEnemyAmount++;
-    }
-
-    public void OnEnemyKilled()
-    {
-        currentEnemyAmount--;
-    }
-
-    private Vector2 RandomSpawnPosition()
-    {
-        Vector2 position = new Vector2();
-
-        Vector2 playerPos = PlayerController.Instance.transform.position;
-        spawnArea = new Vector2 (playerPos.x + Random.Range(25f, 30f), playerPos.y + Random.Range(12f, 15f));
-
-        float f = Random.value > 0.5? -1f : 1f;
-        if (Random.value > 0.5)
+        private bool CanSpawnBurst()
         {
-            position.x = spawnArea.x * f;
-            position.y = Random.Range(-spawnArea.y, spawnArea.y);
-        }
-        else
-        {
-            position.y = spawnArea.y * f;
-            position.x = Random.Range(-spawnArea.x, spawnArea.x);
+            if (CurrentWaveConfig.Bursts.Length == 0) return false;
+            if (CurrentWaveConfig.Bursts.Length <= m_BurstSpawned) return false;
+            
+            m_TimerWave += Time.deltaTime;
+            if (m_TimerWave >= CurrentWaveConfig.Bursts[m_BurstSpawned].TimestampStart)
+            {
+                m_TimerWave = 0f;
+                return true;
+            }
+            return false;
         }
 
-        return position;
+        private void SpawnEnemies(int amount)
+        {
+            for (int i = 0; i < amount; i++)
+            {
+                SpawnEnemy();
+            }
+        }
+
+        private void SpawnEnemy()
+        {
+            Vector2 spawnPosition = RandomSpawnPosition();
+            PoolManager.Instance.Spawn(CurrentWaveConfig.EnemiesPrefabs.GetRandom(), spawnPosition,
+                Quaternion.identity);
+        }
+
+        private Vector2 RandomSpawnPosition()
+        {
+            Vector2 targetPosition = EnemyUtils.GetTarget().position;
+            Vector2 spawnDirection = Random.insideUnitCircle.normalized;
+            Vector2 position = targetPosition + spawnDirection * m_RadiusSpawnOffset;
+            return position;
+        }
+
+
+        private void OnDrawGizmosSelected()
+        {
+
+            Transform target = EnemyUtils.GetTarget() ?? transform;
+            Vector2 targetPosition = target.position;
+            Gizmos.color = Color.yellow;
+            Gizmos.DrawWireSphere(targetPosition, m_RadiusSpawnOffset);
+        }
     }
 }
