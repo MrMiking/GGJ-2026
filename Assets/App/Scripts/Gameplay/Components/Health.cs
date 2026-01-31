@@ -38,27 +38,24 @@ namespace GGJ2026
                 m_MaxHealth = value;
                 CurrentHealth = Mathf.Clamp(CurrentHealth, 0.0f, m_MaxHealth);
                 OnMaxHealthChange?.Invoke(CurrentHealth, m_MaxHealth);
+                OnMaxHealthChangeEvent.Invoke();
             }
         }
 
         public bool IsAlive => CurrentHealth > 0.0f;
         public bool IsDead => CurrentHealth == 0.0f;
-
-        public void ResetComponent()
-        {
-            CurrentHealth = MaxHealth;
-            OnDeath = null;
-        }
         
         public void Apply(in Damage damage)
         {
             var lastHealth = CurrentHealth;
             CurrentHealth -= damage.Value;
             OnDamage?.Invoke(lastHealth, CurrentHealth, in damage);
+            OnDamageEvent.Invoke();
 
             if (CurrentHealth == 0.0f)
             {
                 OnDeath?.Invoke();
+                OnDeathEvent.Invoke();
             }
         }
 
@@ -67,6 +64,7 @@ namespace GGJ2026
             var lastHealth = CurrentHealth;
             CurrentHealth += heal.Value;
             OnHeal?.Invoke(lastHealth, CurrentHealth, in heal);
+            OnHealEvent.Invoke();
         }
     }
 

@@ -23,7 +23,6 @@ namespace GGJ2026
             m_NavMeshAgent.speed = m_ContactEnemySettings.Speed;
             m_NavMeshAgent.updateRotation = false;
             m_NavMeshAgent.autoRepath = false;
-            m_Health.OnDeath += Die;
         }
 
         private void OnEnable()

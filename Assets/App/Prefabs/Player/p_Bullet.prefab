@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8353182376949625185}
   - component: {fileID: 8336391022007329343}
-  - component: {fileID: 8594105372474239869}
   - component: {fileID: 8209347208642705677}
   m_Layer: 7
   m_Name: p_Bullet
@@ -79,7 +78,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.3537736, g: 1, b: 0.38887066, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -89,33 +88,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!50 &8594105372474239869
-Rigidbody2D:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4776745955038568425}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDamping: 0
-  m_AngularDamping: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!114 &8209347208642705677
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -128,3 +100,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8cfc2549ce25a4aa87491861945eab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bulletLifetime: 5
+  rb: {fileID: 0}
+  m_Radius: 0.08
+  m_DamageLayerMask:
+    serializedVersion: 2
+    m_Bits: 64
+  m_BounceLayerMask:
+    serializedVersion: 2
+    m_Bits: 1

@@ -17,6 +17,7 @@ namespace GGJ2026
             CurrentMask = mask;
             m_Icon.sprite = mask.Sprite;
             m_Icon.enabled = true;
+            Debug.Log(currentLevel);
             m_PriceText.text = $"${mask.Price * mask.PricePerLevel[currentLevel]}";
 
             DisableStars();

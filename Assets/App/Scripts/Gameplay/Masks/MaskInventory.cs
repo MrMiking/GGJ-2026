@@ -10,6 +10,10 @@ namespace GGJ2026
         [SerializeField] private Mask[] m_Masks = new Mask[InventorySize];
 
         [SerializeField] private MaskBehaviour[] m_Behaviours = new MaskBehaviour[InventorySize];
+        
+        public event Action<Mask> OnMaskAttached;
+        public event Action<Mask> OnMaskRemoved;
+        public event Action<Mask, int> OnMaskLevelChanged;
 
         private void Awake()
         {
@@ -45,6 +49,7 @@ namespace GGJ2026
             m_Masks[firstEmptyIndex] = mask;
             AttachMaskBehaviour(firstEmptyIndex, level);
 
+            OnMaskAttached?.Invoke(mask);
             return true;
         }
 
@@ -53,13 +58,15 @@ namespace GGJ2026
             if (index < 0 || index >= InventorySize)
                 return;
 
+            var deletedMask = m_Masks[index];
             m_Masks[index] = null;
             ref var behaviour = ref m_Behaviours[index];
-            if (behaviour != null)
-            {
-                Destroy(behaviour.gameObject);
-                behaviour = null;
-            }
+            
+            if (behaviour == null) return;
+            
+            OnMaskRemoved?.Invoke(deletedMask);
+            Destroy(behaviour.gameObject);
+            behaviour = null;
         }
 
         public int GetMaskLevel(int index)
@@ -68,11 +75,22 @@ namespace GGJ2026
             return behaviour == null ? 0 : behaviour.Level;
         }
 
+        public int GetMaskLevel(Mask mask)
+        {
+            var index = Array.FindIndex(m_Masks, (m) => m == mask);
+            if (index != -1)
+                return GetMaskLevel(index);
+            return 0;
+        }
+
         public void IncreaseMaskLevel(int index)
         {
             var behaviour = m_Behaviours[index];
             if (behaviour)
+            {
                 behaviour.IncreaseLevel();
+                OnMaskLevelChanged?.Invoke(this[index] ,GetMaskLevel(index));
+            }
         }
 
         public void IncreaseMaskLevel(Mask mask)

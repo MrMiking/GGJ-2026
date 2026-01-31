@@ -1,7 +1,4 @@
-﻿using MVsToolkit.Pool;
-using UnityEngine;
-using UnityEngine.Pool;
-using UnityEngine.Serialization;
+﻿using UnityEngine;
 
 namespace GGJ2026
 {
@@ -26,6 +23,7 @@ namespace GGJ2026
 
         protected virtual void Die()
         {
+            m_Health.OnDeath -= Die;
             ((IPooledObject)this).Release();
         }
 
@@ -39,7 +37,8 @@ namespace GGJ2026
         public virtual void Initialize(int poolKey)
         {
             PoolKey = poolKey;
-            m_Health.ResetComponent();
+            m_Health.Apply(new Heal(m_Health.MaxHealth));
+            m_Health.OnDeath += Die;
         }
 
         #endregion

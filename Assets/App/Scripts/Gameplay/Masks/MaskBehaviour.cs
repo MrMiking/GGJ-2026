@@ -5,8 +5,8 @@ namespace GGJ2026
 {
     public abstract class MaskBehaviour : MonoBehaviour
     {
-        public Mask Mask { get; private set; }
-        public int Level { get; private set; }
+        public Mask Mask;
+        public int Level;
 
         internal void Configure(Mask mask, int level)
         {
