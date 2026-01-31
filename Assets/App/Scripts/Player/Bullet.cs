@@ -2,7 +2,6 @@ using GGJ2026;
 using MVsToolkit.Utilities;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SocialPlatforms;
 
 public class Bullet : MonoBehaviour, IPooledObject
 {
@@ -42,7 +41,7 @@ public class Bullet : MonoBehaviour, IPooledObject
         m_RemainingBulletPierce = characterStats.BulletPierce.Value;
         m_Velocity = transform.up * characterStats.BulletSpeed.Value;
         m_Released = false;
-        transform.localScale = Vector3.one * m_CharacterStats.BulletSize.Value;
+        transform.localScale = Vector3.one * m_CharacterStats.BulletSize.Value * m_DefaultRadius;
         m_Radius = m_DefaultRadius * m_CharacterStats.BulletSize.Value;
 
         this.Delay(() => {
@@ -103,7 +102,7 @@ public class Bullet : MonoBehaviour, IPooledObject
 
     private void CastBounce()
     {
-        var hit = Physics2D.CircleCast(transform.position, m_Radius, transform.up, 0.5f, m_BounceLayerMask);
+        var hit = Physics2D.CircleCast(transform.position, m_Radius, transform.up, 0.05f, m_BounceLayerMask);
         if (hit.collider)
         {
             Vector2 direction = transform.up.normalized;

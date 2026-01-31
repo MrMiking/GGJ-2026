@@ -48,7 +48,6 @@ namespace GGJ2026
                     {
                         GameManager.Instance.CurrentGold++;
                         OnCoinCollected.Invoke(particlePos);
-                        Debug.Log(GameManager.Instance.CurrentGold);
                         s_ParticleBuffer[i].remainingLifetime = 0;
                     }
                 }
