@@ -13,6 +13,8 @@ namespace GGJ2026
         [SerializeField] private NavMeshAgent m_NavMeshAgent;
         
         private State m_State = State.Default;
+
+        private float m_TimerAttack;
         
         private void Awake()
         {
@@ -65,6 +67,10 @@ namespace GGJ2026
             switch (m_State)
             {
                 case State.Default:
+                    if (CanAttack())
+                    {
+                        Attack();
+                    }
                     break;
                 case State.AutoPiloted:
                     transform.position = Vector3.MoveTowards(transform.position, EnemyUtils.GetTarget().position,
@@ -73,11 +79,39 @@ namespace GGJ2026
             }
         }
 
+        private void Attack()
+        {
+            if (!Physics.SphereCast(transform.position, m_ContactEnemySettings.AttackRange, Vector3.forward,
+                    out RaycastHit hitInfo, Mathf.Infinity, LayerMask.GetMask("Player"))) return;
+            if (hitInfo.collider.TryGetComponent(out Health health))
+            {
+                health.Apply(m_ContactEnemySettings.AttackDamage);
+            }
+        }
+
+        private bool CanAttack()
+        {
+            m_TimerAttack += Time.deltaTime;
+            if (m_TimerAttack >= m_ContactEnemySettings.AttackCooldown && 
+                Vector3.Distance(transform.position, EnemyUtils.GetTarget().position) <= m_ContactEnemySettings.AttackRange)
+            {
+                m_TimerAttack = 0f;
+                return true;
+            }
+            return false;
+        }
+        
         private enum State
         {
             Default,
             AutoPiloted
         }
-        
+
+
+        private void OnDrawGizmosSelected()
+        {
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireSphere(transform.position, m_ContactEnemySettings.AttackRange);
+        }
     }
 }

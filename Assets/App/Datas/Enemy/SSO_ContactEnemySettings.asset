@@ -13,3 +13,5 @@ MonoBehaviour:
   m_Name: SSO_ContactEnemySettings
   m_EditorClassIdentifier: 
   Speed: 3
+  AttackRange: 1
+  AttackCooldown: 1
