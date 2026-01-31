@@ -15,9 +15,10 @@ namespace GGJ2026
         private State m_State = State.Default;
 
         private float m_TimerAttack;
-        
-        private void Awake()
+
+        public override void Initialize(int poolKey)
         {
+            base.Initialize(poolKey);
             m_NavMeshAgent.speed = m_ContactEnemySettings.Speed;
             m_NavMeshAgent.updateRotation = false;
             m_NavMeshAgent.autoRepath = false;

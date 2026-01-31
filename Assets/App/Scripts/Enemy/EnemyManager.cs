@@ -18,6 +18,8 @@ namespace GGJ2026
         private const int k_MaxMillisecondsPerFrame = (int)(1f/60f/8f * 1000);
         private const int k_AutoPilotRefreshRateMs = 1000;
         
+        public int EnemyCount => m_Enemies.Count;
+        
         public void Register(BaseEnemy baseEnemy)
         {
             m_Enemies.Add(baseEnemy);

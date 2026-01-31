@@ -36,7 +36,7 @@ namespace GGJ2026
         public int PoolKey { get; set; }
         public GameObject GameObject => gameObject;
 
-        public void Initialize(int poolKey)
+        public virtual void Initialize(int poolKey)
         {
             PoolKey = poolKey;
             m_Health.ResetComponent();
