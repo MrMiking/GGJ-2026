@@ -1,55 +1,58 @@
 using GGJ2026;
-using MVsToolkit.Utilities;
 using System.Collections;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-[RequireComponent(typeof(CharacterStats))]
+[RequireComponent(typeof(Rigidbody2D), typeof(CharacterStats))]
 public class PlayerController : RegularSingleton<PlayerController>
 {
     [Header("References")]
-    [SerializeField] Rigidbody2D rb;
-    [SerializeField] Camera mainCamera;
     [SerializeField] Transform attackPoint;
     [SerializeField] Rigidbody2D bulletPrefabRb;
+    [SerializeField] Transform m_AimTarget;
 
     [Header("Input Actions")]
     [SerializeField] private InputActionReference moveIA;
     [SerializeField] private InputActionReference dashIA;
-    [SerializeField] private InputActionReference mousePointerIA;
+    [SerializeField] private InputActionReference aimInputRef;
 
     [Header("Player Settings")]
-    public float health = 100f;
     public float dashForce = 50f;
 
     [Header("Shoot Settings")]
     public float bulletLifetime = 2f;
 
-    private Vector2 mousePointer;
-    private Vector2 moveInput;
+    private Vector2 m_AimInput;
+    private Vector2 m_MoveInput;
 
-    private CharacterStats characterStats;
+    private CharacterStats m_CharacterStats;
+    private Rigidbody2D m_Rigidbody;
+
+    private Vector2 m_TargetVelocity = Vector2.zero;
 
     public bool canShoot = true;
 
     protected override void Awake()
     {
-        characterStats = GetComponent<CharacterStats>();
         base.Awake();
-        moveIA.action.Enable();
-        mousePointerIA.action.Enable();
-        dashIA.action.Enable();
+        m_CharacterStats = GetComponent<CharacterStats>();
+        m_Rigidbody = GetComponent<Rigidbody2D>();
+        BindInputs();
+    }
+
+    private void OnDestroy()
+    {
+        UnbindInputs();
     }
 
     private void OnEnable()
     {
-        dashIA.action.performed += Dash;
+        dashIA.action.performed += OnDash;
     }
 
     private void OnDisable()
     {
-        dashIA.action.performed -= Dash;
+        dashIA.action.performed -= OnDash;
     }
 
     private void Start()
@@ -57,19 +60,43 @@ public class PlayerController : RegularSingleton<PlayerController>
         StartCoroutine(ShootCooldown());
     }
 
+    public void AddForce(Vector2 force)
+    {
+        m_Rigidbody.linearVelocity += force;
+    }
+
     private void Update()
     {
-        moveInput = moveIA.action.ReadValue<Vector2>().normalized;
-        rb.AddForce(moveInput * characterStats.MovementSpeed.Value);
+        // Compute the target velocity
+        if (m_MoveInput != Vector2.zero)
+        {
+            var characterSpeed = m_CharacterStats.MovementSpeed.Value;
+            m_TargetVelocity = m_MoveInput * characterSpeed;
+        }
+        else
+        {
+            m_TargetVelocity = Vector2.zero;
+        }
 
-        mousePointer = mousePointerIA.action.ReadValue<Vector2>();
+        // Make the acceleration of the player bound to it's movement speed stat.
+        var acceleration = 2.0f * m_CharacterStats.MovementSpeed.Value;
+        var maxVelocityChange = acceleration * Time.deltaTime;
+        m_Rigidbody.linearVelocity = Vector3.MoveTowards(
+            m_Rigidbody.linearVelocity, 
+            m_TargetVelocity, 
+            maxVelocityChange
+        );
 
-        Rotate();
+        if (m_AimInput != Vector2.zero)
+        {
+            var maxAngleChance = 1080f * Mathf.Deg2Rad * Time.deltaTime;
+            m_AimTarget.up = Vector3.RotateTowards(m_AimTarget.up, m_AimInput, maxAngleChance, 0.0f);
+        }
     }
 
     private IEnumerator ShootCooldown()
     {
-        yield return new WaitForSeconds(1.0f / characterStats.FireRate.Value);
+        yield return new WaitForSeconds(1.0f / m_CharacterStats.FireRate.Value);
         yield return new WaitUntil(() => canShoot == true);
         Shoot();
     }
@@ -78,31 +105,65 @@ public class PlayerController : RegularSingleton<PlayerController>
     {
         StartCoroutine(ShootCooldown());
         Rigidbody2D rb = Instantiate(bulletPrefabRb, attackPoint.position, attackPoint.rotation);
-        rb.AddForce(rb.transform.up * characterStats.BulletSpeed.Value, ForceMode2D.Impulse);
+        rb.AddForce(rb.transform.up * m_CharacterStats.BulletSpeed.Value, ForceMode2D.Impulse);
         Destroy(rb.gameObject, bulletLifetime);
     }
 
-    private void Dash(InputAction.CallbackContext ctx)
+    private void Dash()
     {
-        Debug.Log("Dash!");
-        rb.AddForce(moveInput * dashForce, ForceMode2D.Impulse);
+        m_Rigidbody.linearVelocity = m_MoveInput * dashForce;
     }
 
-    public void TakeDamage(float damage)
+    #region Inputs
+
+    private void BindInputs()
     {
-        health -= damage;
-        if (health <= 0)
+        moveIA.action.Enable();
+        aimInputRef.action.Enable();
+        dashIA.action.Enable();
+
+        moveIA.action.performed += OnMove;
+        moveIA.action.started += OnMove;
+        moveIA.action.canceled += OnMove;
+        aimInputRef.action.performed += OnAim;
+        aimInputRef.action.started += OnAim;
+        aimInputRef.action.canceled += OnAim;
+    }
+
+    private void UnbindInputs()
+    {
+        moveIA.action.performed -= OnMove;
+        moveIA.action.started -= OnMove;
+        moveIA.action.canceled -= OnMove;
+        aimInputRef.action.performed -= OnAim;
+        aimInputRef.action.started -= OnAim;
+        aimInputRef.action.canceled -= OnAim;
+    }
+
+    private void OnMove(InputAction.CallbackContext context)
+    {
+        // Should be normalized in the InputAction asset
+        m_MoveInput = context.ReadValue<Vector2>();
+    }
+
+    private void OnAim(InputAction.CallbackContext context)
+    {
+        if (context.control.device is Mouse)
         {
-            // Handle player death
+            var mouseScreenPos = context.ReadValue<Vector2>();
+            var mouseWorldPos = (Vector2) Camera.main.ScreenToWorldPoint(mouseScreenPos);
+            var playerPos = (Vector2) transform.position;
+            m_AimInput = (mouseWorldPos - playerPos).normalized;
+        }
+        else // Other input devices such as gamepads etc...
+        {
+            m_AimInput = context.ReadValue<Vector2>();
         }
     }
 
-    void Rotate()
+    private void OnDash(InputAction.CallbackContext ctx)
     {
-        Vector2 mousePos = mainCamera.ScreenToWorldPoint(mousePointer);
-        Vector2 lookDir = mousePos - rb.position;
-
-        float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg - 90f;
-        transform.rotation = Quaternion.Euler(0, 0, angle);
+        Dash();
     }
+    #endregion
 }
