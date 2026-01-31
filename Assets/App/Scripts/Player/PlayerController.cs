@@ -24,6 +24,7 @@ public class PlayerController : RegularSingleton<PlayerController>
 
     private Vector2 m_AimInput;
     private Vector2 m_MoveInput;
+    private float m_LastGamepadInputTime = float.NegativeInfinity;
 
     private CharacterStats m_CharacterStats;
     private Rigidbody2D m_Rigidbody;
@@ -148,16 +149,21 @@ public class PlayerController : RegularSingleton<PlayerController>
 
     private void OnAim(InputAction.CallbackContext context)
     {
-        if (context.control.device is Mouse)
+        if (context.control.device is Gamepad)
         {
+            m_AimInput = context.ReadValue<Vector2>();
+            m_LastGamepadInputTime = Time.time;
+        }
+        else if (context.control.device is Mouse)
+        {
+            // Wait at least 1 second before giving control back to mouse input.
+            if (Time.time - m_LastGamepadInputTime < 0.75f)
+                return;
+
             var mouseScreenPos = context.ReadValue<Vector2>();
             var mouseWorldPos = (Vector2) Camera.main.ScreenToWorldPoint(mouseScreenPos);
             var playerPos = (Vector2) transform.position;
             m_AimInput = (mouseWorldPos - playerPos).normalized;
-        }
-        else // Other input devices such as gamepads etc...
-        {
-            m_AimInput = context.ReadValue<Vector2>();
         }
     }
 
