@@ -9,7 +9,8 @@ namespace GGJ2026
         public float Speed = 3f;
         [Space]
         public float AttackRange = 0.5f;
-        public float AttackCooldown;
-        public Damage AttackDamage = new(DamageType.Physical,10);
+        public float AttackCooldown = 1.0f;
+        public int AttackDamage = 10;
+        public float KnockbackForce = 10f;
     }
 }

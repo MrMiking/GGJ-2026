@@ -2,6 +2,7 @@ using UnityEngine;
 
 namespace GGJ2026
 {
+    [RequireComponent(typeof(Health))]
     public sealed class CharacterStats : MonoBehaviour
     {
         [Header("Base Player Stats")]
@@ -17,6 +18,8 @@ namespace GGJ2026
         [SerializeField] private int m_BulletBounce = 0;
         [SerializeField] private int m_BulletPierce = 5;
         [SerializeField] private int m_BulletSpread = 1;
+
+        private Health m_Health;
 
         public Stat HealthPoints { get; private set; }
         public Stat MovementSpeed { get; private set; }
@@ -45,6 +48,21 @@ namespace GGJ2026
             BulletSize = new Stat(m_BulletSize, 0.1f);
             BulletPierce = new Stat(m_BulletPierce, 0.0f);
             BulletSpread = new Stat(m_BulletSpread, 1.0f);
+
+            m_Health = GetComponent<Health>();
+            if (m_Health.MaxHealth != HealthPoints.Value)
+            {
+                m_Health.MaxHealth = HealthPoints.Value;
+                m_Health.Apply(new Heal(m_Health.MaxHealth));
+            }
+        }
+
+        private void Update()
+        {
+            if (m_Health.MaxHealth != HealthPoints.Value)
+            {
+                m_Health.MaxHealth = HealthPoints.Value;
+            }
         }
 
         private void OnValidate()

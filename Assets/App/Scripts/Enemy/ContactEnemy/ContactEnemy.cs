@@ -1,4 +1,5 @@
 ﻿using System;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -82,11 +83,17 @@ namespace GGJ2026
 
         private void Attack()
         {
-            if (!Physics.SphereCast(transform.position, m_ContactEnemySettings.AttackRange, Vector3.forward,
-                    out RaycastHit hitInfo, Mathf.Infinity, LayerMask.GetMask("Player"))) return;
-            if (hitInfo.collider.TryGetComponent(out Health health))
+            var target = EnemyUtils.GetTarget();
+            if (target.TryGetComponent(out Health health))
             {
-                health.Apply(m_ContactEnemySettings.AttackDamage);
+                var damage = new Damage(this, DamageType.Physical, m_ContactEnemySettings.AttackDamage);
+                health.Apply(damage);
+            }
+
+            if (target.TryGetComponent(out PlayerController playerController))
+            {
+                var knockbackDirection = ((Vector2) (target.position - transform.position)).normalized;
+                playerController.AddForce(knockbackDirection * m_ContactEnemySettings.KnockbackForce);
             }
         }
 
