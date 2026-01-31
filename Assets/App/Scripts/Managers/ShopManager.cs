@@ -1,7 +1,6 @@
-using System;
-using UnityEngine;
-using System.Collections.Generic;
 using MVsToolkit.Dev;
+using UnityEngine;
+using TMPro;
 
 namespace GGJ2026
 {
@@ -15,6 +14,7 @@ namespace GGJ2026
         [SerializeField] private MaskShopSlot[] m_Slots;
         [SerializeField] private MaskDatabase m_AvailableMaskPool;
         [SerializeField] private GameObject m_ShopPanel;
+        [SerializeField] private TextMeshProUGUI m_PriceText;
         
         private int m_RerollCount;
         
@@ -25,8 +25,9 @@ namespace GGJ2026
             public int PriceIncreasePerReroll = 2;
             private int m_RerollsDone = 0;
 
-            public int GetCurrentPrice() => BaseRerollPrice + (m_RerollsDone * PriceIncreasePerReroll);
+            public int GetCurrentRerollPrice() => BaseRerollPrice + (m_RerollsDone * PriceIncreasePerReroll);
             public void Increment() => m_RerollsDone++;
+            public void Reset() => m_RerollsDone = 0;
         }
 
         private void Start()
@@ -47,17 +48,22 @@ namespace GGJ2026
         {
             GameStateManager.Instance.PopContext(GameState.Shop);
             m_ShopPanel.SetActive(false);
+            m_Pricing.Reset();
         }
         
         public void Reroll()
         {
-            // TODO: Vérifier la monnaie ici
-            SetupShop();
+            if (GameManager.Instance.CurrentGold < m_Pricing.GetCurrentRerollPrice()) return;
+            
+            GameManager.Instance.CurrentGold -= m_Pricing.GetCurrentRerollPrice();
             m_Pricing.Increment();
+            SetupShop();
         }
 
         private void SetupShop()
         {
+            m_PriceText.text = $"Reroll ${m_Pricing.GetCurrentRerollPrice()}";
+            
             foreach (var slot in m_Slots)
             {
                 var randomMask = m_AvailableMaskPool[UnityEngine.Random.Range(0, m_AvailableMaskPool.MaskCount)];
@@ -71,24 +77,17 @@ namespace GGJ2026
         {
             foreach (var slot in m_Slots)
             {
-                if (slot.CurrentMask == null) continue;
-                int level = GetMaskLevelInInventory(slot.CurrentMask);
-                slot.Setup(slot.CurrentMask, level);
-                
-                Debug.Log("---->"+slot.CurrentMask.name + level);
+                if (slot.CurrentMask != null)
+                {
+                    int level = GetMaskLevelInInventory(slot.CurrentMask);
+                    slot.Setup(slot.CurrentMask, level);
+                }
             }
         }
         
         private int GetMaskLevelInInventory(Mask mask)
         {
-            for (int i = 0; i < MaskInventory.InventorySize; i++)
-            {
-                if (m_Inventory[i] == mask)
-                {
-                    return m_Inventory.GetMaskLevel(i);
-                }
-            }
-            return 0;
+            return m_Inventory.GetMaskLevel(mask);
         }
 
         public void OnSlotClicked(MaskShopSlot slot)
