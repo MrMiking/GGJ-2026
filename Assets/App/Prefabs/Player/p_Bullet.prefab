@@ -101,8 +101,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletLifetime: 5
-  rb: {fileID: 0}
-  m_Radius: 0.08
+  m_DefaultRadius: 0.2
   m_DamageLayerMask:
     serializedVersion: 2
     m_Bits: 64
