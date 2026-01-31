@@ -31,7 +31,7 @@ namespace GGJ2026
             return m_Masks[index];
         }
 
-        public bool TryAddMask(Mask mask)
+        public bool TryAddMask(Mask mask, int level = 1)
         {
             if (mask == null)
                 return false;
@@ -43,7 +43,7 @@ namespace GGJ2026
             }
 
             m_Masks[firstEmptyIndex] = mask;
-            AttachMaskBehaviour(firstEmptyIndex);
+            AttachMaskBehaviour(firstEmptyIndex, level);
 
             return true;
         }
@@ -82,11 +82,12 @@ namespace GGJ2026
                 IncreaseMaskLevel(index);
         }
 
-        private void AttachMaskBehaviour(int index)
+        private void AttachMaskBehaviour(int index, int level = 1)
         {
             var mask = m_Masks[index];
             var maskBehaviour = Instantiate(mask.BehaviourPrefab, transform);
             var ctx = new MaskAttachContext(this);
+            maskBehaviour.Configure(mask, level);
             maskBehaviour.OnMaskAttached(ctx);
         }
 
