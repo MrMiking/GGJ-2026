@@ -47,6 +47,7 @@ namespace GGJ2026
         public void ResetComponent()
         {
             CurrentHealth = MaxHealth;
+            OnDeath = null;
         }
         
         public void Apply(in Damage damage)

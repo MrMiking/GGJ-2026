@@ -46,18 +46,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_StatEffects:
   - stat: 0
-    modifierType: 0
+    modifierType: 1
     statValuePerLevel:
-    - 5
-    - 10
-    - 15
-    - 20
-    - 30
+    - 0.1
+    - 0.2
+    - 0.3
+    - 0.4
+    - 0.5
   - stat: 1
-    modifierType: 0
+    modifierType: 1
     statValuePerLevel:
-    - -1
-    - -1
-    - -1
+    - -0.1
+    - -0.1
     - 0
+    - 0
+    - 0
+  - stat: 4
+    modifierType: 1
+    statValuePerLevel:
+    - -0.2
+    - -0.2
+    - -0.2
+    - -0.2
     - 0
