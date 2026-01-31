@@ -1,8 +1,14 @@
 using System.Collections.Generic;
 using UnityEngine.InputSystem;
 using UnityEngine;
+using GGJ2026;
 
-public enum GameState { Playing, Shop, Pause }
+public enum GameState 
+{
+    Playing, 
+    Shop, 
+    Pause 
+}
 
 public class GameStateManager : RegularSingleton<GameStateManager>
 {
@@ -61,7 +67,7 @@ public class GameStateManager : RegularSingleton<GameStateManager>
 
     private void EnableGame()
     {
-        Time.timeScale = 1;
+        GameTimeline.Instance.Resume();
         
         m_PlayerMap.Enable();
         m_UIMap.Disable();
@@ -81,8 +87,7 @@ public class GameStateManager : RegularSingleton<GameStateManager>
 
     private void EnableUI()
     {
-        Time.timeScale = 0;
-        
+        GameTimeline.Instance.Pause();
         m_PlayerMap.Disable();
         m_UIMap.Enable();
 
