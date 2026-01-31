@@ -21,7 +21,7 @@ namespace GGJ2026
 
         #region State Methods
 
-        protected virtual void Die()
+        public virtual void Die()
         {
             m_Health.OnDeath -= Die;
             ((IPooledObject)this).Release();

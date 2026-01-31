@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using UnityEngine;
 
@@ -13,13 +14,29 @@ namespace GGJ2026
         private int m_EnemyUpdatedThisFrame;
         private int m_TimeSinceLastAutoPilotCheckMs;
         
-        
-        
         private const int k_MaxMillisecondsPerFrame = (int)(1f/60f/8f * 1000);
         private const int k_AutoPilotRefreshRateMs = 1000;
         
         public int EnemyCount => m_Enemies.Count;
+
+        private void OnEnable()
+        {
+            GameTimeline.Instance.OnTimelineEventChange += UpdateState;
+        }
         
+        private void OnDisable()
+        {
+            GameTimeline.Instance.OnTimelineEventChange -= UpdateState;
+        }
+
+        private void UpdateState(GameTimeline.TimelineEvent ev)
+        {
+            if (ev != GameTimeline.TimelineEvent.Wave)
+            {
+                DestroyAllEnemies();
+            }
+        }
+
         public void Register(BaseEnemy baseEnemy)
         {
             m_Enemies.Add(baseEnemy);
@@ -74,6 +91,14 @@ namespace GGJ2026
             }
             
             m_TimeSinceLastAutoPilotCheckMs = 0;
+        }
+
+        public void DestroyAllEnemies()
+        {
+            foreach (BaseEnemy enemy in m_Enemies.ToArray())
+            {
+                enemy.Die();
+            }
         }
     }
 }

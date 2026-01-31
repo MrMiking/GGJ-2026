@@ -1,5 +1,6 @@
 using System;
 using MVsToolkit.Utilities;
+using NavMeshPlus.Components;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -11,8 +12,9 @@ namespace GGJ2026
         [SerializeField] private SSO_WaveConfig[] m_WavesConfig;
         [Space] 
         [SerializeField] private float m_RadiusSpawnOffset;
+        [SerializeField] private float m_SpawnDelay = 2f;
         [Space]
-        [SerializeField] private bool m_AutoStartOnAwake = true;
+        [SerializeField] private bool m_AutoStartOnAwake = false;
 
         private SSO_WaveConfig CurrentWaveConfig => m_WavesConfig[Mathf.Min(m_WavesConfig.Length - 1, IndexWave)];
         private int MaxEnemyAmount => m_WavesConfig[Mathf.Min(m_WavesConfig.Length - 1, IndexWave)].EnemiesCount;
@@ -20,7 +22,7 @@ namespace GGJ2026
 
         private int CurrentEnemyAmount => EnemyManager.Instance.EnemyCount;
         
-        private bool m_CanSpawn = true;
+        private bool m_CanSpawn;
         
         private float m_TimerWave = 0f;
         private int m_BurstSpawned = 0;
@@ -28,18 +30,32 @@ namespace GGJ2026
         private void OnEnable()
         {
             if (m_AutoStartOnAwake) StartWaveSystem();
+            GameTimeline.Instance.OnTimelineEventChange += CheckSystemUpdate;
         }
-        
+
+        private void CheckSystemUpdate(GameTimeline.TimelineEvent state)
+        {
+            if (state == GameTimeline.TimelineEvent.Wave)
+            {
+                StartWaveSystem();
+            }
+            else
+            {
+                StopWaveSystem();
+            }
+        }
+
         private void OnDisable()
         {
+            GameTimeline.Instance.OnTimelineEventChange += CheckSystemUpdate;
             StopWaveSystem();
         }
         
         public void StartWaveSystem()
         {
-            m_CanSpawn = true;
             m_TimerWave = 0f;
             m_BurstSpawned = 0;
+            this.Delay(()=>m_CanSpawn = true, m_SpawnDelay);
         }
         
         public void StopWaveSystem()
@@ -49,7 +65,7 @@ namespace GGJ2026
         
         private void Update()
         {
-            if (!m_CanSpawn) return;
+            if (!m_CanSpawn || GameTimeline.Instance.IsPaused) return;
             if (CurrentEnemyAmount < MaxEnemyAmount) SpawnEnemies(MaxEnemyAmount - CurrentEnemyAmount);
             if (CanSpawnBurst())
             {
@@ -92,7 +108,7 @@ namespace GGJ2026
             Vector2 targetPosition = EnemyUtils.GetTarget().position;
             Vector2 spawnDirection = Random.insideUnitCircle.normalized;
             Vector2 position = targetPosition + spawnDirection * m_RadiusSpawnOffset;
-            return position;
+            return NavMeshSurface.activeSurfaces[0].navMeshData.sourceBounds.ClosestPoint(position);
         }
 
 
