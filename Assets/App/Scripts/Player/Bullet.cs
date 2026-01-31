@@ -41,7 +41,7 @@ public class Bullet : MonoBehaviour, IPooledObject
         m_RemainingBulletPierce = characterStats.BulletPierce.Value;
         m_Velocity = transform.up * characterStats.BulletSpeed.Value;
         m_Released = false;
-        transform.localScale = Vector3.one * m_CharacterStats.BulletSize.Value * m_DefaultRadius;
+        transform.localScale = Vector3.one * (m_CharacterStats.BulletSize.Value * m_DefaultRadius);
         m_Radius = m_DefaultRadius * m_CharacterStats.BulletSize.Value;
 
         this.Delay(() => {

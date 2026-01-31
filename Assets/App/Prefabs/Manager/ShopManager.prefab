@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1010612470751156809
+--- !u!1 &875561193253247330
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,43 +8,50 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2861532121476019658}
-  - component: {fileID: 1196859286373791974}
+  - component: {fileID: 7492187499199469691}
+  - component: {fileID: 7531259427749055991}
   m_Layer: 0
-  m_Name: WaveManager
+  m_Name: ShopManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2861532121476019658
+--- !u!4 &7492187499199469691
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1010612470751156809}
+  m_GameObject: {fileID: 875561193253247330}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1196859286373791974
+--- !u!114 &7531259427749055991
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1010612470751156809}
+  m_GameObject: {fileID: 875561193253247330}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dedc114362970c94fbfccd8d9b679da9, type: 3}
+  m_Script: {fileID: 11500000, guid: 684e5d1542ff9124281d89034e2e3513, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_WavesConfig:
-  - {fileID: 11400000, guid: cb3da9e97823678468ebe0d989fff278, type: 2}
-  m_RadiusSpawnOffset: 19.9
-  m_AutoStartOnAwake: 0
+  m_Pricing:
+    BaseRerollPrice: 2
+    PriceIncreasePerReroll: 1
+  m_Inventory: {fileID: 0}
+  m_Slots:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  m_AvailableMaskPool: {fileID: 11400000, guid: 82702439762c33a448fc29bcd3b22aeb, type: 2}
+  m_ShopPanel: {fileID: 0}
+  m_PriceText: {fileID: 0}
