@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 namespace GGJ2026
 {
-    [RequireComponent(typeof(NavMeshAgent), typeof(Health))]
+    [RequireComponent(typeof(NavMeshAgent), typeof(Health), typeof(ContactDamage))]
     public sealed class MinibossAI : BaseEnemy
     {
         private enum State
@@ -33,13 +33,14 @@ namespace GGJ2026
 
         private State m_State = State.Chasing;
         private NavMeshAgent m_NavMeshAgent;
-        private float m_LastPlayerDamageTime = float.NegativeInfinity;
+        private ContactDamage m_Contact;
         private float m_LastDashTime = float.NegativeInfinity;
 
         private void Awake()
         {
             m_NavMeshAgent = GetComponent<NavMeshAgent>();
             m_Health = GetComponent<Health>();
+            m_Contact = GetComponent<ContactDamage>();
         }
 
         public override void Initialize(int poolKey)
@@ -49,6 +50,10 @@ namespace GGJ2026
             m_NavMeshAgent.updateRotation = false;
             m_NavMeshAgent.autoRepath = false;
             m_DashLineRenderer.enabled = false;
+            m_State = State.Chasing;
+            m_Contact.damage = m_ContactDamage;
+            m_Contact.knockbackForce = m_ContactKnockbackForce;
+            m_Contact.radius = m_Radius;
         }
 
         private void OnEnable()
@@ -76,12 +81,6 @@ namespace GGJ2026
                 case State.Chasing:
                     UpdateChasing();
                     break;
-            }
-
-            if (Time.time - m_LastPlayerDamageTime > 0.5f &&
-                Vector2.Distance(EnemyUtils.GetTarget().position, transform.position) < m_Radius)
-            {
-                Attack();
             }
         }
 
@@ -112,8 +111,9 @@ namespace GGJ2026
 
             m_State = State.Dashing;
             // Reste last player damage time to enable double attack.
-            m_LastPlayerDamageTime = float.NegativeInfinity;
-
+            m_Contact.SkipCooldown();
+            m_Contact.damage = m_DashDamage;
+            m_Contact.knockbackForce = m_DashKnockbackForce;
 
             var dashDuration = m_DashDistance / m_DashSpeed;
             float t = 0;
@@ -132,35 +132,10 @@ namespace GGJ2026
             m_DashLineRenderer.enabled = false;
 
             m_State = State.Chasing;
+            m_Contact.damage = m_ContactDamage;
+            m_Contact.knockbackForce = m_DashKnockbackForce;
             m_NavMeshAgent.enabled = true;
             m_NavMeshAgent.Warp(transform.position);
-        }
-
-        private void Attack()
-        {
-            var dmg = m_State == State.Dashing ? m_DashDamage : m_ContactDamage;
-            var knockbackForce = m_State == State.Dashing ? m_DashKnockbackForce : m_ContactKnockbackForce;
-
-            var target = EnemyUtils.GetTarget();
-            if (target.TryGetComponent(out Health health))
-            {
-                var damage = new Damage(this, DamageType.Physical, dmg);
-                health.Apply(damage);
-            }
-
-            if (target.TryGetComponent(out PlayerController playerController))
-            {
-                var knockbackDirection = ((Vector2)(target.position - transform.position)).normalized;
-                playerController.AddForce(knockbackDirection * knockbackForce);
-            }
-
-            m_LastPlayerDamageTime = Time.time;
-        }
-
-        private void OnDrawGizmosSelected()
-        {
-            Gizmos.color = Color.red;
-            Gizmos.DrawWireSphere(transform.position, m_Radius);
         }
     }
 }
