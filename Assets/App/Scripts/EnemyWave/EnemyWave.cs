@@ -2,6 +2,7 @@ using System;
 using MVsToolkit.Utilities;
 using NavMeshPlus.Components;
 using UnityEngine;
+using UnityEngine.AI;
 using Random = UnityEngine.Random;
 
 namespace GGJ2026
@@ -108,6 +109,12 @@ namespace GGJ2026
             Vector2 targetPosition = EnemyUtils.GetTarget().position;
             Vector2 spawnDirection = Random.insideUnitCircle.normalized;
             Vector2 position = targetPosition + spawnDirection * m_RadiusSpawnOffset;
+
+            if (NavMesh.SamplePosition(position, out var hit, 100.0f, -1))
+            {
+                return hit.position;
+            }
+
             return NavMeshSurface.activeSurfaces[0].navMeshData.sourceBounds.ClosestPoint(position);
         }
 
