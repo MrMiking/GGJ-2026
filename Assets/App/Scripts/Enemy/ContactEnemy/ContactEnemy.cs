@@ -39,12 +39,12 @@ namespace GGJ2026
             m_NavMeshAgent.SetDestination(EnemyUtils.GetTarget().position);
         }
 
-        public override void SetAutoPilot(bool autoPiloted)
+        public override void UpdateAutoPilot()
         {
             switch (m_State)
             {
                 case State.Default:
-                    if (autoPiloted)
+                    if (!CameraUtils.IsWorldPositionVisible(transform.position, CameraUtils.K_MarginExit))
                     {
                         m_State = State.AutoPiloted;
                         m_NavMeshAgent.enabled = false;
@@ -52,7 +52,7 @@ namespace GGJ2026
                     }
                     break;
                 case State.AutoPiloted:
-                    if (!autoPiloted)
+                    if (CameraUtils.IsWorldPositionVisible(transform.position, CameraUtils.K_KMarginEnter))
                     {
                         m_State = State.Default;
                         m_NavMeshAgent.enabled = true;

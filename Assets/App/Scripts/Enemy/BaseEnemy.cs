@@ -13,7 +13,7 @@ namespace GGJ2026
 
         public virtual void UpdateState(){}
 
-        public virtual void SetAutoPilot(bool autoPiloted){}
+        public virtual void UpdateAutoPilot(){}
         
         protected abstract void Die();
     }

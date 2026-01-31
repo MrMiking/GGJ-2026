@@ -16,7 +16,7 @@ namespace GGJ2026
         
         
         private const int k_MaxMillisecondsPerFrame = (int)(1f/60f/8f * 1000);
-        private const int k_AutoPilotRefreshRateMs = 30;
+        private const int k_AutoPilotRefreshRateMs = 1000;
         
         public void Register(BaseEnemy baseEnemy)
         {
@@ -68,7 +68,7 @@ namespace GGJ2026
             
             foreach (BaseEnemy enemy in m_Enemies)
             {
-                enemy.SetAutoPilot(!CameraUtils.IsWorldPositionVisible(enemy.transform.position));
+                enemy.UpdateAutoPilot();
             }
             
             m_TimeSinceLastAutoPilotCheckMs = 0;
