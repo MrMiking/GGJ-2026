@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="EncodableAsset" id="{07b92309-cedc-4711-bb6e-90ec5c30c29b}">
+		<property name="assetPath">
+			<value>SoundEffect/Gameplay/Gun/</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{4e8f4f66-69a7-4839-9514-008284a74e7b}</destination>
+		</relationship>
+	</object>
+</objects>

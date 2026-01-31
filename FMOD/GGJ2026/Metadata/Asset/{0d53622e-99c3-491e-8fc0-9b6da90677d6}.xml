@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="EncodableAsset" id="{0d53622e-99c3-491e-8fc0-9b6da90677d6}">
+		<property name="assetPath">
+			<value>SoundEffect/Gameplay/EnemyHit/</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{4e8f4f66-69a7-4839-9514-008284a74e7b}</destination>
+		</relationship>
+	</object>
+</objects>

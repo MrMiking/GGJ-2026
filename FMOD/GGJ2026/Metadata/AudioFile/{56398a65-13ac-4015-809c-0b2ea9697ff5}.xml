@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="AudioFile" id="{56398a65-13ac-4015-809c-0b2ea9697ff5}">
+		<property name="assetPath">
+			<value>SoundEffect/Gameplay/Gun/Fire_4.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>0.48454166666666665</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{4e8f4f66-69a7-4839-9514-008284a74e7b}</destination>
+		</relationship>
+	</object>
+</objects>
