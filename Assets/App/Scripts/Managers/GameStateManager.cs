@@ -26,6 +26,7 @@ public class GameStateManager : RegularSingleton<GameStateManager>
         PushContext(GameState.Playing);
     }
 
+    // Set new State
     public void PushContext(GameState context)
     {
         Debug.Log("Push Context " + context);
@@ -33,6 +34,8 @@ public class GameStateManager : RegularSingleton<GameStateManager>
         ApplyContext(context);
     }
 
+    
+    // Pop State
     public void PopContext(GameState context)
     {
         if (m_ContextStack.Count == 0) return;
