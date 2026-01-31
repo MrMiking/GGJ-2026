@@ -8,7 +8,7 @@ public class EnemyWave : MonoBehaviour
     [SerializeField] private float newWaveCooldown;
 
     public int waveCount = 0;
-    public float spawnCooldown = 2f;
+    public float spawnCooldown = 5f;
     public int currentEnemyAmount = 0;
     public int maxEnemyAmount = 0;
     public int minEnemyAmount = 0;
@@ -37,6 +37,8 @@ public class EnemyWave : MonoBehaviour
             canSpawn = true;
         }
     }
+
+    //Wave Management
 
     private IEnumerator NewWaveCooldown()
     {
@@ -84,6 +86,8 @@ public class EnemyWave : MonoBehaviour
         StartCoroutine(NewWaveCooldown());
     }
 
+
+    //SPAWN LOOP
     private IEnumerator SpawnCooldown()
     {
         yield return new WaitForSeconds(spawnCooldown);
