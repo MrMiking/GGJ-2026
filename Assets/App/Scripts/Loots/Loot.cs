@@ -1,30 +1,17 @@
 using UnityEngine;
-using DG.Tweening;
-using DG.Tweening.Core;
 
-public class Loot : MonoBehaviour
+namespace GGJ2026
 {
-    [Header("Settings")]
-    [SerializeField] private int goldAmount = 1;
-    
-    public void Collect(LootCollector target, float speed)
+    public sealed class Loot : MonoBehaviour
     {
-        Tweener tweener = transform.DOMove(target.transform.position, speed).SetSpeedBased(true);
+        [Header("Settings")]
+        [SerializeField] private int m_MinGoldAmount = 1;
+        [SerializeField] private int m_MaxGoldAmount = 3;
 
-        tweener.OnUpdate(() =>
+        public void SpawnLoot()
         {
-            if (Vector3.Distance(transform.position, target.transform.position) > 1.0f)
-            {
-                tweener.ChangeEndValue(target.transform.position, true);
-            }
-        });
-
-        tweener.OnComplete(OnCollected);
-    }
-    
-    private void OnCollected()
-    {
-        GameManager.Instance.CurrentGold += goldAmount;
-        Destroy(gameObject);
+            var amount = Random.Range(m_MinGoldAmount, m_MaxGoldAmount);
+            GoldCoinSpawner.Instance.SpawnCoins(transform.position, amount);
+        }
     }
 }
