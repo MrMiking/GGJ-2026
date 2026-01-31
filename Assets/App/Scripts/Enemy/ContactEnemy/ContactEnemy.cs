@@ -29,7 +29,7 @@ namespace GGJ2026
         
         private void OnDisable()
         {
-            EnemyPool.Instance?.Pool.Release(this);
+            // EnemyPool.Instance?.Pool.Release(this);
             EnemyManager.Instance?.Unregister(this);
         }
 
