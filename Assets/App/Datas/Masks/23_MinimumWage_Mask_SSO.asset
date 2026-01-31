@@ -12,7 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2542648a8f7d4974e82b104d89072ded, type: 3}
   m_Name: 23_MinimumWage_Mask_SSO
   m_EditorClassIdentifier: 
-  m_Rarity: 1
+  m_Rarity: 2
   m_MaximumLevel: 5
+  m_Price: 0
+  m_PricePerLevel:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
   m_BehaviourPrefab: {fileID: -2610133214841175153, guid: 37aa16e69a7f8854b955ac5cd5e5435e, type: 3}
   m_Sprite: {fileID: 0}
