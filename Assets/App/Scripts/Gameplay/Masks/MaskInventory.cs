@@ -9,7 +9,7 @@ namespace GGJ2026
 
         [SerializeField] private Mask[] m_Masks = new Mask[InventorySize];
 
-        private MaskBehaviour[] m_Behaviours = new MaskBehaviour[InventorySize];
+        [SerializeField] private MaskBehaviour[] m_Behaviours = new MaskBehaviour[InventorySize];
 
         private void Awake()
         {
@@ -86,6 +86,7 @@ namespace GGJ2026
         {
             var mask = m_Masks[index];
             var maskBehaviour = Instantiate(mask.BehaviourPrefab, transform);
+            m_Behaviours[index] = maskBehaviour;
             var ctx = new MaskAttachContext(this);
             maskBehaviour.Configure(mask, level);
             maskBehaviour.OnMaskAttached(ctx);

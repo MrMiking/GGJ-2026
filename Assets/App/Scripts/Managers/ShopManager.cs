@@ -71,9 +71,11 @@ namespace GGJ2026
         {
             foreach (var slot in m_Slots)
             {
-                if (slot.CurrentMask == null) break;
+                if (slot.CurrentMask == null) continue;
                 int level = GetMaskLevelInInventory(slot.CurrentMask);
                 slot.Setup(slot.CurrentMask, level);
+                
+                Debug.Log("---->"+slot.CurrentMask.name + level);
             }
         }
         
@@ -83,7 +85,7 @@ namespace GGJ2026
             {
                 if (m_Inventory[i] == mask)
                 {
-                    return m_Inventory.GetMaskLevel(i) + 1;
+                    return m_Inventory.GetMaskLevel(i);
                 }
             }
             return 0;

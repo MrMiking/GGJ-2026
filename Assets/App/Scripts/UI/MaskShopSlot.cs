@@ -10,7 +10,7 @@ namespace GGJ2026
         [SerializeField] private Image m_Icon;
         [SerializeField] private GameObject[] m_StarVisuals;
         [SerializeField] private TextMeshProUGUI m_PriceText;
-        public Mask CurrentMask { get; private set; }
+        public Mask CurrentMask;
 
         public void Setup(Mask mask, int currentLevel)
         {
