@@ -7,7 +7,7 @@ namespace GGJ2026
     [RequireComponent(typeof(ParticleSystem))]
     public sealed class GoldCoinSpawner : RegularSingleton<GoldCoinSpawner>
     {
-        private static ParticleSystem.Particle[] s_ParticleBuffer = new ParticleSystem.Particle[656635];
+        private static ParticleSystem.Particle[] s_ParticleBuffer = new ParticleSystem.Particle[65536];
 
         public UnityEvent<Vector2> OnCoinCollected;
 
