@@ -14,5 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Rarity: 0
   m_MaximumLevel: 5
+  m_Price: 25
+  m_PricePerLevel:
+  - 1
+  - 1.5
+  - 5
+  - 10
+  - 20
   m_BehaviourPrefab: {fileID: -2610133214841175153, guid: 1323a9d7a187d8540b651ec4a011d7d0, type: 3}
   m_Sprite: {fileID: 0}

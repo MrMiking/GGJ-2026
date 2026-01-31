@@ -173,8 +173,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6620060d5f195e4591d729643fa7734, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_MinGoldAmount: 2
-  m_MaxGoldAmount: 6
+  m_MinGoldAmount: 1
+  m_MaxGoldAmount: 1
 --- !u!1 &2760686984180776126
 GameObject:
   m_ObjectHideFlags: 0
