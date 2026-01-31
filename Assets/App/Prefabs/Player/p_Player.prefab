@@ -130,6 +130,7 @@ GameObject:
   - component: {fileID: 3001156671733089952}
   - component: {fileID: 9042211533049908455}
   - component: {fileID: 2347490144141767597}
+  - component: {fileID: 8839163617509950538}
   - component: {fileID: 7979868289536678622}
   - component: {fileID: 2287510017600096252}
   m_Layer: 0
@@ -220,7 +221,33 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
+--- !u!114 &8839163617509950538
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3706236725027899421}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b1b020767fc69c4784fd5f328778e26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_MaxHealth: 100
+  m_CurrentHealth: 100
+  OnDamageEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  OnHealEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  OnMaxHealthChangeEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  OnDeathEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &7979868289536678622
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -309,6 +336,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Masks:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  m_Behaviours:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
