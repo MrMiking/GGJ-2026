@@ -29,14 +29,13 @@ namespace GGJ2026
         
         private void OnDisable()
         {
-            // EnemyPool.Instance?.Pool.Release(this);
             EnemyManager.Instance?.Unregister(this);
         }
 
         public override void RefreshPath()
         {
             if (m_State == State.AutoPiloted) return;
-            m_NavMeshAgent.SetDestination(EnemyUtils.GetTarget().position);
+            if (m_NavMeshAgent.isOnNavMesh) m_NavMeshAgent.SetDestination(EnemyUtils.GetTarget().position);
         }
 
         public override void UpdateAutoPilot()
@@ -72,11 +71,6 @@ namespace GGJ2026
                         m_ContactEnemySettings.Speed * Time.deltaTime);
                     break;
             }
-        }
-
-        protected override void Die()
-        {
-            gameObject.SetActive(false);
         }
 
         private enum State

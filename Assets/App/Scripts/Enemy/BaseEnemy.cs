@@ -14,7 +14,10 @@ namespace GGJ2026
         public virtual void UpdateState(){}
 
         public virtual void UpdateAutoPilot(){}
-        
-        protected abstract void Die();
+
+        protected virtual void Die()
+        {
+            EnemyPool.Instance?.Pool.Release(this);
+        }
     }
 }

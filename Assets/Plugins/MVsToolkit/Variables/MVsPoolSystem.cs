@@ -104,16 +104,21 @@ namespace MVsToolkit.Pool
         /// <param name="c">Instance to return.</param>
         public void Release(T c)
         {
-            if (c == null) return;
+            
+            if (!c) return;
 
             if (queue == null) Init();
 
+            if (queue.Contains(c)) return;
+            
             if (m_LimitSize && MaximumPoolSize > 0 && queue.Count >= MaximumPoolSize)
             {
                 DestroyInternal(c);
                 return;
             }
-
+            
+            
+            
             SetActive(c, false);
             SetParent(c, parent);
             queue.Enqueue(c);
