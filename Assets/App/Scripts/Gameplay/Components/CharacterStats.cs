@@ -47,7 +47,7 @@ namespace GGJ2026
             BulletBounce = new Stat(m_BulletBounce, 0.0f);
             BulletSize = new Stat(m_BulletSize, 0.1f);
             BulletPierce = new Stat(m_BulletPierce, 0.0f);
-            BulletSpread = new Stat(m_BulletSpread, 1.0f);
+            BulletSpread = new Stat(m_BulletSpread, 0.0f);
 
             m_Health = GetComponent<Health>();
             if (m_Health.MaxHealth != HealthPoints.Value)

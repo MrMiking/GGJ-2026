@@ -105,8 +105,18 @@ public class PlayerController : RegularSingleton<PlayerController>
     private void Shoot()
     {
         StartCoroutine(ShootCooldown());
-        Bullet bullet = PoolManager.Instance.Spawn(bulletPrefabRb, attackPoint.position, attackPoint.rotation);
-        bullet.Fire(m_CharacterStats);
+        
+        int spread = (int) m_CharacterStats.BulletSpread.Value;
+        int bulletCount = spread + 1;
+        var spreadAngle = spread * 10.0f;
+        for (int i = 0; i < bulletCount; i++)
+        {
+            var angle = Mathf.Lerp(-spreadAngle / 2, spreadAngle / 2, (float) i / bulletCount);
+            var rotation = attackPoint.rotation * Quaternion.Euler(0, 0, angle);
+            var bullet = PoolManager.Instance.Spawn(bulletPrefabRb, attackPoint.position, rotation);
+            bullet.Fire(m_CharacterStats);
+        }
+
     }
 
     private void Dash()
