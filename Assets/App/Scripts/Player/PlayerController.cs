@@ -128,10 +128,6 @@ public class PlayerController : RegularSingleton<PlayerController>
 
     private void BindInputs()
     {
-        moveIA.action.Enable();
-        aimInputRef.action.Enable();
-        dashIA.action.Enable();
-
         moveIA.action.performed += OnMove;
         moveIA.action.started += OnMove;
         moveIA.action.canceled += OnMove;
