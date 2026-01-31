@@ -8,7 +8,7 @@ public class PlayerController : RegularSingleton<PlayerController>
 {
     [Header("References")]
     [SerializeField] Transform attackPoint;
-    [SerializeField] Rigidbody2D bulletPrefabRb;
+    [SerializeField] Bullet bulletPrefabRb;
     [SerializeField] Transform m_AimTarget;
 
     [Header("Input Actions")]
@@ -105,9 +105,8 @@ public class PlayerController : RegularSingleton<PlayerController>
     private void Shoot()
     {
         StartCoroutine(ShootCooldown());
-        Rigidbody2D rb = Instantiate(bulletPrefabRb, attackPoint.position, attackPoint.rotation);
-        rb.AddForce(rb.transform.up * m_CharacterStats.BulletSpeed.Value, ForceMode2D.Impulse);
-        Destroy(rb.gameObject, bulletLifetime);
+        Bullet bullet = PoolManager.Instance.Spawn(bulletPrefabRb, attackPoint.position, attackPoint.rotation);
+        bullet.Fire(m_CharacterStats);
     }
 
     private void Dash()
