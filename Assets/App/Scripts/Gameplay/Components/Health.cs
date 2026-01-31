@@ -44,6 +44,11 @@ namespace GGJ2026
         public bool IsAlive => CurrentHealth > 0.0f;
         public bool IsDead => CurrentHealth == 0.0f;
 
+        public void ResetComponent()
+        {
+            CurrentHealth = MaxHealth;
+        }
+        
         public void Apply(in Damage damage)
         {
             var lastHealth = CurrentHealth;

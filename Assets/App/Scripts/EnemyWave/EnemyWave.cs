@@ -1,4 +1,5 @@
 using System.Collections;
+using GGJ2026;
 using UnityEngine;
 
 public class EnemyWave : MonoBehaviour
@@ -110,8 +111,7 @@ public class EnemyWave : MonoBehaviour
 
         Vector2 spawnPosition = RandomSpawnPosition();
 
-        GameObject newEnemy = Instantiate(Enemy);
-        newEnemy.transform.position = spawnPosition;
+        PoolManager.Instance.Spawn(Enemy, spawnPosition, Quaternion.identity);
 
         currentEnemyAmount++;
     }
