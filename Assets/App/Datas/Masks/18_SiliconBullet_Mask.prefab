@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1085947642461033833}
   - component: {fileID: -2610133214841175153}
   m_Layer: 0
-  m_Name: 1_Healthy_Mask
+  m_Name: 18_SiliconBullet_Mask
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45,27 +45,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_StatEffects:
-  - stat: 0
+  - stat: 9
+    modifierType: 0
+    statValuePerLevel:
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+  - stat: 8
     modifierType: 1
     statValuePerLevel:
-    - 0.1
-    - 0.2
-    - 0.3
-    - 0.4
-    - 0.5
-  - stat: 1
-    modifierType: 1
-    statValuePerLevel:
-    - -0.1
-    - -0.1
-    - 0
-    - 0
-    - 0
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
   - stat: 4
     modifierType: 1
     statValuePerLevel:
     - -0.2
-    - -0.2
-    - -0.2
-    - -0.2
-    - 0
+    - -0.3
+    - -0.3
+    - -0.4
+    - -0.4
