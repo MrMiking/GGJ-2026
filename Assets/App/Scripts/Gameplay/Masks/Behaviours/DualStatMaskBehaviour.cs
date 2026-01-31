@@ -29,7 +29,7 @@ namespace GGJ2026
             public float[] statValuePerLevel;
         }
 
-        [SerializeField] private StatEffect[] m_StatEffects;
+        [SerializeField] private StatEffect[] m_StatEffects = new StatEffect[0];
 
         public override void OnMaskAttached(in MaskAttachContext context)
         {
