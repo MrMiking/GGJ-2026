@@ -13,7 +13,7 @@ namespace GGJ2026
         [Header("References")]
         [SerializeField] private MaskInventory m_Inventory;
         [SerializeField] private MaskShopSlot[] m_Slots;
-        [SerializeField] private Mask[] m_AvailableMaskPool;
+        [SerializeField] private MaskDatabase m_AvailableMaskPool;
         [SerializeField] private GameObject m_ShopPanel;
         
         private int m_RerollCount;
@@ -60,7 +60,7 @@ namespace GGJ2026
         {
             foreach (var slot in m_Slots)
             {
-                var randomMask = m_AvailableMaskPool[UnityEngine.Random.Range(0, m_AvailableMaskPool.Length)];
+                var randomMask = m_AvailableMaskPool[UnityEngine.Random.Range(0, m_AvailableMaskPool.MaskCount)];
                 
                 int level = GetMaskLevelInInventory(randomMask);
                 slot.Setup(randomMask, level);

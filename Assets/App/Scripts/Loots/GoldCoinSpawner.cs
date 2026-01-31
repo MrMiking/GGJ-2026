@@ -1,3 +1,4 @@
+using MVsToolkit.Dev;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -20,9 +21,8 @@ namespace GGJ2026
 
         public void SpawnCoins(Vector2 position, int amount)
         {
-            var emitParams = new ParticleSystem.EmitParams();
-            emitParams.position = position;
-            m_ParticleSystem.Emit(emitParams, amount);
+            m_ParticleSystem.transform.position = position;
+            m_ParticleSystem.Emit(amount);
         }
 
         public void AttractCoins(Vector2 position, float attractionRadius, float collectRadius, float attractionSpeed)
@@ -55,6 +55,13 @@ namespace GGJ2026
             }
 
             m_ParticleSystem.SetParticles(s_ParticleBuffer, count);
+        }
+
+        [Button]
+        private void SpawnRandomGoldCoins()
+        {
+            var pos = new Vector2(-10f + Random.value * 20f, -10f + Random.value * 20f);
+            SpawnCoins(pos, Random.Range(3, 10));
         }
     }
 }
