@@ -25,7 +25,7 @@ MonoBehaviour:
     Percentage: 50
   - Enemy: {fileID: 487814550502994093, guid: de9616c991cb5264e8fe7f3c60bb54c0, type: 3}
     Percentage: 5
-  EnemiesCount: 20
+  EnemiesCount: 100
   Bursts:
   - TimestampStart: 5
     BurstCount: 200
