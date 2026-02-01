@@ -10,14 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f9a4b7ed1b744661ad8c2ba0af114736, type: 3}
-  m_Name: SSO_WaveConfig_1
+  m_Name: SSO_WaveConfig_4
   m_EditorClassIdentifier: 
   Enemies:
   - Enemy: {fileID: 487814550502994093, guid: 09147f2b97976294aac2077e39bc45d6, type: 3}
-    Percentage: 100
-  - Enemy: {fileID: 487814550502994093, guid: 49b8ba05e9e1b684f9a08fc511c4ed4f, type: 3}
-    Percentage: 1
-  EnemiesCount: 10
+    Percentage: 90
+  - Enemy: {fileID: 487814550502994093, guid: 3088dacc3b4befb499b8c0a9f988a701, type: 3}
+    Percentage: 90
+  - Enemy: {fileID: 487814550502994093, guid: 16d2507c8b65bbe40a5da351596a957b, type: 3}
+    Percentage: 25
+  EnemiesCount: 15
   Bursts:
-  - TimestampStart: 10
-    BurstCount: 10
+  - TimestampStart: 5
+    BurstCount: 15
