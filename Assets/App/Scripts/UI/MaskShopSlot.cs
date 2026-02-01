@@ -1,10 +1,11 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 namespace GGJ2026
 {
-    public class MaskShopSlot : MonoBehaviour
+    public class MaskShopSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
         [Header("References")]
         [SerializeField] private Image m_Icon;
@@ -12,9 +13,13 @@ namespace GGJ2026
         [SerializeField] private TextMeshProUGUI m_PriceText;
         public Mask CurrentMask;
 
+        private string m_Descriptor;
+        private int m_CurrentLevel;
+
         public void Setup(Mask mask, int currentLevel)
         {
             CurrentMask = mask;
+            m_CurrentLevel = currentLevel;
             m_Icon.sprite = mask.Sprite;
             m_Icon.enabled = true;
             m_PriceText.enabled = true;
@@ -35,9 +40,20 @@ namespace GGJ2026
         public void Clear()
         {
             CurrentMask = null;
+            m_CurrentLevel = 0;
             m_Icon.enabled = false;
             m_PriceText.enabled = false;
             foreach(var star in m_StarVisuals) star.SetActive(false);
+        }
+
+        public void OnPointerEnter(PointerEventData eventData)
+        {
+            MaskTooltip.Instance.Show(CurrentMask, m_CurrentLevel);
+        }
+
+        public void OnPointerExit(PointerEventData eventData)
+        {
+            MaskTooltip.Instance.Hide();
         }
     }
 }
