@@ -34,6 +34,7 @@ public class PlayerController : RegularSingleton<PlayerController>
     private Vector2 m_TargetVelocity = Vector2.zero;
 
     public bool canShoot = true;
+    private float m_ShootTimer; 
 
     public Health PlayerHealth => playerHealth;
     public MaskInventory Inventory => inventory;
@@ -59,11 +60,6 @@ public class PlayerController : RegularSingleton<PlayerController>
     private void OnDisable()
     {
         dashIA.action.performed -= OnDash;
-    }
-
-    private void Start()
-    {
-        StartCoroutine(ShootCooldown());
     }
 
     public void AddForce(Vector2 force)
@@ -98,19 +94,28 @@ public class PlayerController : RegularSingleton<PlayerController>
             var maxAngleChance = 1080f * Mathf.Deg2Rad * Time.deltaTime;
             m_AimTarget.up = Vector3.RotateTowards(m_AimTarget.up, m_AimInput, maxAngleChance, 0.0f);
         }
+        
+        
+        if (CanShoot()) Shoot();
     }
 
-    private IEnumerator ShootCooldown()
+    private bool CanShoot()
     {
-        yield return new WaitForSeconds(1.0f / m_CharacterStats.FireRate.Value);
-        yield return new WaitUntil(() => canShoot == true);
-        Shoot();
+        if (GameTimeline.Instance.IsPaused) return false;
+        if (m_CharacterStats.FireRate == null) return false;
+        
+        m_ShootTimer += Time.deltaTime;
+        
+        if (m_ShootTimer < 1.0f / m_CharacterStats.FireRate.Value) return false;
+        if (!canShoot) return false;
+        
+        m_ShootTimer = 0f;
+        return true;
     }
+
 
     private void Shoot()
     {
-        StartCoroutine(ShootCooldown());
-        
         int spread = (int) m_CharacterStats.BulletSpread.Value;
         int bulletCount = spread + 1;
         var spreadAngle = spread * 10.0f;
@@ -121,7 +126,6 @@ public class PlayerController : RegularSingleton<PlayerController>
             var bullet = PoolManager.Instance.Spawn(bulletPrefabRb, attackPoint.position, rotation);
             bullet.Fire(m_CharacterStats);
         }
-
     }
 
     private void Dash()
