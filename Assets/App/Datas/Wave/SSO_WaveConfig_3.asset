@@ -15,7 +15,7 @@ MonoBehaviour:
   EnemiesPrefabs:
   - {fileID: 487814550502994093, guid: 09147f2b97976294aac2077e39bc45d6, type: 3}
   - {fileID: 487814550502994093, guid: 292bad002e95c6d4d856e3d8aea1aded, type: 3}
-  EnemiesCount: 15
+  EnemiesCount: 10
   Bursts:
   - TimestampStart: 10
-    BurstCount: 50
+    BurstCount: 30
