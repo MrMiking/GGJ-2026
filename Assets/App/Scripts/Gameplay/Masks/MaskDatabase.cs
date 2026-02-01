@@ -1,3 +1,4 @@
+using MVsToolkit.Dev;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -11,7 +12,15 @@ namespace GGJ2026
     [CreateAssetMenu(fileName = "New Mask DB", menuName = "GGJ2026/MaskDB")]
     public sealed class MaskDatabase : ScriptableObject, IEnumerable<Mask>
     {
+        [Serializable]
+        public struct MaskPool
+        {
+            public int gameLevel;
+            public WeightedList<Mask> masks;
+        }
+
         [SerializeField] private Mask[] m_Masks;
+        [SerializeField] private MaskPool[] m_MaskPools;
 
         public int MaskCount => m_Masks.Length;
         public Mask this[int index] => m_Masks[index];
@@ -19,11 +28,22 @@ namespace GGJ2026
         public IEnumerator<Mask> GetEnumerator() => ((IEnumerable<Mask>) m_Masks).GetEnumerator();
         IEnumerator IEnumerable.GetEnumerator() => m_Masks.GetEnumerator();
 
+        public MaskPool GetMaskPoolForLevel(int level)
+        {
+            var pool = m_MaskPools
+                .Where(p => p.gameLevel <= level)
+                .OrderByDescending((p) => p.gameLevel)
+                .First();
+
+            pool.masks.RecalculateWeights();
+            return pool;
+        }
 
 #if UNITY_EDITOR
         private const string MasksFolderPath = "Assets/App/Datas/Masks";
 
-        private void OnValidate()
+        [ContextMenu("Sync All Masks")]
+        private void SyncAllMasks()
         {
             if (string.IsNullOrEmpty(MasksFolderPath))
                 return;

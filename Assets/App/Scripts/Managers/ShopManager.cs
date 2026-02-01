@@ -1,8 +1,8 @@
-using System;
-using System.Diagnostics.Tracing;
 using MVsToolkit.Dev;
-using UnityEngine;
+using System;
+using System.Linq;
 using TMPro;
+using UnityEngine;
 
 namespace GGJ2026
 {
@@ -33,6 +33,8 @@ namespace GGJ2026
             public void Increment() => m_RerollsDone++;
             public void Reset() => m_RerollsDone = 0;
         }
+
+
 
         private void Start()
         {
@@ -68,13 +70,22 @@ namespace GGJ2026
         private void SetupShop()
         {
             m_PriceText.text = $"Reroll ${m_Pricing.GetCurrentRerollPrice()}";
-            
+
+            var pool = m_AvailableMaskPool.GetMaskPoolForLevel(GameManager.Instance.Level);
+            var maskListCopy = pool.masks.Clone();
+
             foreach (var slot in m_Slots)
             {
-                var randomMask = m_AvailableMaskPool[UnityEngine.Random.Range(0, m_AvailableMaskPool.MaskCount)];
-                
-                int level = GetMaskLevelInInventory(randomMask);
-                slot.Setup(randomMask, level);
+                var randomMask = maskListCopy.GetRandomAndRemove();
+                if (randomMask == null)
+                {
+                    Debug.LogError($"Not enough mask in the pool for level {pool.gameLevel} !");
+                }
+                else
+                {
+                    int level = GetMaskLevelInInventory(randomMask);
+                    slot.Setup(randomMask, level);
+                }
             }
         }
 
