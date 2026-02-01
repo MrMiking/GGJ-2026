@@ -492,6 +492,7 @@ Transform:
   - {fileID: 1385223402}
   - {fileID: 1658785397}
   - {fileID: 578764336}
+  - {fileID: 189133819}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &141884964
@@ -164966,6 +164967,8 @@ GameObject:
   - component: {fileID: 2073763629}
   - component: {fileID: 2073763631}
   - component: {fileID: 2073763630}
+  - component: {fileID: 2073763632}
+  - component: {fileID: 2073763633}
   m_Layer: 0
   m_Name: VCAM_FollowPlayer
   m_TagString: Untagged
@@ -165077,7 +165080,7 @@ MonoBehaviour:
   NoiseProfile: {fileID: 11400000, guid: bcf6524ce6451f34cb7106d0c00da9a5, type: 2}
   PivotOffset: {x: 0, y: 0, z: 0}
   AmplitudeGain: 0
-  FrequencyGain: 0
+  FrequencyGain: 2.29374e-15
   m_NoiseOffsets: {x: 0, y: 0, z: 0}
 --- !u!114 &2073763633
 MonoBehaviour:
