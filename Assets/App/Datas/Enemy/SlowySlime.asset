@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SlowySlime
   m_EditorClassIdentifier: 
   Speed: 1.2
-  AttackRange: 0.5
+  AttackRange: 1
   AttackCooldown: 0.7
   AttackDamage: 15
   KnockbackForce: 5
