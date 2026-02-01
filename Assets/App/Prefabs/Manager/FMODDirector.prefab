@@ -243,6 +243,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9160008119955953145}
   - component: {fileID: 9062903249054856678}
+  - component: {fileID: 2318247151598599668}
   m_Layer: 0
   m_Name: FMODDirector
   m_TagString: Untagged
@@ -258,7 +259,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6006648720240871674}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 19.21498, y: -4.951755, z: -0.3340005}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -297,3 +298,21 @@ MonoBehaviour:
   OverrideAttenuation: 0
   OverrideMinDistance: 1
   OverrideMaxDistance: 20
+--- !u!114 &2318247151598599668
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6006648720240871674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14a9ef0b3a464dd48a2b4565be0dcb9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Emitter: {fileID: 9062903249054856678}
+  m_ParameterIDStart: Start
+  m_ParameterIDShop: Shop
+  m_ParameterIDDefeat: Death
+  m_ParameterIDLife: Life
+  m_DurationStinger: 0.1

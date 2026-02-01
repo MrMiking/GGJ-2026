@@ -30,7 +30,11 @@ namespace GGJ2026
                 
                 PlayerController.Instance.gameObject.SetActive(true);
             }
-
+            else
+            {
+                GameTimeline.Instance.CurrentTimelineEvent = GameTimeline.TimelineEvent.Introduction;
+                yield return null;
+            }
             StartCoroutine(GameLoop());
         }
         
