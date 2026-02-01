@@ -19,5 +19,5 @@ MonoBehaviour:
     Percentage: 50
   EnemiesCount: 15
   Bursts:
-  - TimestampStart: 10
-    BurstCount: 30
+  - TimestampStart: 5
+    BurstCount: 40
