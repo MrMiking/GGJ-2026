@@ -14,6 +14,9 @@ namespace GGJ2026
         [SerializeField] private float[] m_PricePerLevel = new float[MaximumMaskLevel];
         [SerializeField] private MaskBehaviour m_BehaviourPrefab;
 
+        [Space, TextArea] 
+        [SerializeField] private string m_Description;
+
         [Space, Header("Visual")]
         [SerializeField] private Sprite m_Sprite;
 
@@ -22,6 +25,7 @@ namespace GGJ2026
         public float Price => m_Price;
         public float[] PricePerLevel => m_PricePerLevel;
         public MaskBehaviour BehaviourPrefab => m_BehaviourPrefab;
+        public string Description => m_Description;
         public Sprite Sprite => m_Sprite;
     }
 
