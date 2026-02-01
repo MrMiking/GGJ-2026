@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.UI;
 
 namespace GGJ2026
 {
@@ -12,7 +11,6 @@ namespace GGJ2026
         [Header("References")]
         [SerializeField] private InputActionReference m_InputActionReference;
         [SerializeField] private bool m_AutoStart = true;
-        [SerializeField] private Image m_ShopSlider;
 
         public float TimerBeforeShop => m_TimerBeforeShop;
         
@@ -52,7 +50,6 @@ namespace GGJ2026
             
             while (timer < m_TimerBeforeShop)
             {
-                m_ShopSlider.fillAmount = timer / m_TimerBeforeShop;
                 timer += Time.deltaTime;
                 yield return null;
             }
