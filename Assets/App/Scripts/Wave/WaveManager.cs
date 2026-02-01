@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using MVsToolkit.Utilities;
 using NavMeshPlus.Components;
 using UnityEngine;
@@ -7,7 +8,7 @@ using Random = UnityEngine.Random;
 
 namespace GGJ2026
 {
-    public sealed class EnemyWave: RegularSingleton<EnemyWave>
+    public sealed class WaveManager: RegularSingleton<WaveManager>
     {
         [Header("Settings")]
         [SerializeField] private SSO_WaveConfig[] m_WavesConfig;
@@ -99,9 +100,35 @@ namespace GGJ2026
 
         private void SpawnEnemy()
         {
+            GameObject enemySelected = RandomSelectEnemy();
+            if (!enemySelected) return;
             Vector2 spawnPosition = RandomSpawnPosition();
-            PoolManager.Instance.Spawn(CurrentWaveConfig.EnemiesPrefabs.GetRandom(), spawnPosition,
+            PoolManager.Instance.Spawn(enemySelected, spawnPosition,
                 Quaternion.identity);
+        }
+
+        private GameObject RandomSelectEnemy()
+        {
+            float totalWeight = 0f;
+
+            foreach (var enemy in CurrentWaveConfig.Enemies)
+            {
+                totalWeight += enemy.Percentage;
+            }
+            
+            float randomWeight = Random.value * totalWeight;
+
+            float cumulativeWeight = 0f;
+
+            foreach (var enemy in CurrentWaveConfig.Enemies)
+            {
+                cumulativeWeight += enemy.Percentage;
+
+                if (randomWeight <= cumulativeWeight) return enemy.Enemy;
+            }
+
+            return CurrentWaveConfig.Enemies.FirstOrDefault().Enemy;
+
         }
 
         private Vector2 RandomSpawnPosition()
