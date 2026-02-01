@@ -31,9 +31,21 @@ namespace GGJ2026
 
             DisableStars();
 
-            if (currentLevel == 0) m_StarVisuals[0].SetActive(true);
-            if (currentLevel == 1) m_StarVisuals[1].SetActive(true);
-            if(currentLevel >= 2) m_StarVisuals[2].SetActive(true);
+            switch (CurrentMask.Rarity)
+            {
+                case MaskRarity.Epic:
+                    m_StarVisuals[0].SetActive(true);
+                    m_StarVisuals[1].SetActive(true);
+                    m_StarVisuals[2].SetActive(true);
+                    break;
+                case MaskRarity.Rare:
+                    m_StarVisuals[0].SetActive(true);
+                    m_StarVisuals[1].SetActive(true);
+                    break;
+                case MaskRarity.Common:
+                    m_StarVisuals[0].SetActive(true);
+                    break;
+            }
         }
 
         private void DisableStars()
