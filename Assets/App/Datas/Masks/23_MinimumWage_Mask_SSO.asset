@@ -17,25 +17,25 @@ MonoBehaviour:
   m_Price: 249.99
   m_PricePerLevel:
   - 1
-  - 1.5
-  - 5
-  - 10
+  - 2
+  - 4
+  - 8
+  - 16
   - 20
-  - 2
-  - 2
-  - 2
-  - 2
-  - 2
-  - 2
-  - 2
-  - 2
-  - 2
-  - 2
-  - 2
-  - 2
-  - 2
-  - 2
-  - 2
+  - 24
+  - 28
+  - 30
+  - 32
+  - 40
+  - 50
+  - 56
+  - 55.5
+  - 120
+  - 150
+  - 200
+  - 250
+  - 1
+  - 1000
   m_BehaviourPrefab: {fileID: -2610133214841175153, guid: 37aa16e69a7f8854b955ac5cd5e5435e, type: 3}
   m_DisplayName: Minimum wage
   m_Description: 
