@@ -47,4 +47,5 @@ MonoBehaviour:
   m_WavesConfig:
   - {fileID: 11400000, guid: cb3da9e97823678468ebe0d989fff278, type: 2}
   m_RadiusSpawnOffset: 19.9
+  m_SpawnDelay: 2
   m_AutoStartOnAwake: 0

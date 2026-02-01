@@ -8,6 +8,8 @@ namespace GGJ2026
     {
         [Header("Settings")]
         [SerializeField] private float m_TimerBeforeShop = 10f;
+
+        [SerializeField] private float m_TimeIntroduction;
         [Header("References")]
         [SerializeField] private InputActionReference m_InputActionReference;
         [SerializeField] private bool m_AutoStart = true;
@@ -16,11 +18,15 @@ namespace GGJ2026
         
         private IEnumerator Start()
         {
-            if (m_AutoStart == false)
+            if (!m_AutoStart)
             {
+                PlayerController.Instance.gameObject.SetActive(false);
+                
                 yield return new WaitUntil(m_InputActionReference.action.WasPressedThisFrame);
                 GameTimeline.Instance.CurrentTimelineEvent = GameTimeline.TimelineEvent.Introduction;
-                yield return new WaitForSeconds(2f);
+                yield return new WaitForSeconds(m_TimeIntroduction);
+                
+                PlayerController.Instance.gameObject.SetActive(true);
             }
 
             StartCoroutine(GameLoop());

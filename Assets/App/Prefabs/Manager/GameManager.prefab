@@ -72,5 +72,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ef6a37a11384afd886b9b701d36cf3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_TimerBeforeShop: 120
+  m_TimerBeforeShop: 60
   m_InputActionReference: {fileID: 1781555164194001046, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
+  m_AutoStart: 1
