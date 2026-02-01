@@ -14,6 +14,8 @@ namespace GGJ2026
         [SerializeField] private float m_MaxHealth = 100.0f;
         [SerializeField] private float m_CurrentHealth = 100.0f;
 
+        private bool m_IsInvincible = false;
+        
         [SerializeField] private UnityEvent OnDamageEvent;
         [SerializeField] private UnityEvent OnHealEvent;
         [SerializeField] private UnityEvent OnMaxHealthChangeEvent;
@@ -44,7 +46,17 @@ namespace GGJ2026
 
         public bool IsAlive => CurrentHealth > 0.0f;
         public bool IsDead => CurrentHealth == 0.0f;
-        
+        public bool IsInvincible
+        {
+            get => m_IsInvincible;
+            private set => m_IsInvincible = value;
+        }
+
+        public void ToggleInvincibility()
+        {
+            IsInvincible = !IsInvincible;
+        }
+
         public void Apply(in Damage damage)
         {
             var lastHealth = CurrentHealth;
@@ -52,7 +64,7 @@ namespace GGJ2026
             OnDamage?.Invoke(lastHealth, CurrentHealth, in damage);
             OnDamageEvent.Invoke();
 
-            if (CurrentHealth == 0.0f)
+            if (CurrentHealth == 0.0f && !IsInvincible)
             {
                 OnDeath?.Invoke();
                 OnDeathEvent.Invoke();

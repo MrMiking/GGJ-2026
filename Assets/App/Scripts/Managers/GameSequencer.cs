@@ -2,6 +2,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
 namespace GGJ2026
@@ -40,12 +41,17 @@ namespace GGJ2026
         
         private IEnumerator GameLoop()
         {
+            void HandleDeathSequence () => GameTimeline.Instance.CurrentTimelineEvent = GameTimeline.TimelineEvent.Defeat;
+            PlayerController.Instance.PlayerHealth.OnDeath += HandleDeathSequence;
+            
             while (GameTimeline.Instance.CurrentTimelineEvent != GameTimeline.TimelineEvent.Defeat)
             {
                 yield return WaveLoop();
+                if (GameTimeline.Instance.CurrentTimelineEvent == GameTimeline.TimelineEvent.Defeat) break;
                 yield return ShopLoop();
             }
 
+            PlayerController.Instance.PlayerHealth.OnDeath -= HandleDeathSequence;
             StartCoroutine(DefeatSequence());
         }
 
@@ -69,7 +75,7 @@ namespace GGJ2026
             
             float timer = 0;
             
-            while (timer < m_TimerBeforeShop)
+            while (timer < m_TimerBeforeShop && GameTimeline.Instance.CurrentTimelineEvent != GameTimeline.TimelineEvent.Defeat)
             {
                 timer += Time.deltaTime;
                 yield return null;
@@ -79,8 +85,11 @@ namespace GGJ2026
         private IEnumerator DefeatSequence()
         {
             GameTimeline.Instance.CurrentTimelineEvent = GameTimeline.TimelineEvent.Defeat;
-            yield return new WaitForSeconds(3f);
+            GameTimeline.Instance.Pause();
+            yield break;
             // Handle defeat logic here (e.g., show defeat screen)
         }
+
+        public void RestartGame() => SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

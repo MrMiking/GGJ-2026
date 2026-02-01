@@ -27,6 +27,7 @@ namespace GGJ2026
                 GUILayout.BeginArea(new Rect(20, 40, 280, 540));
                 GUILayout.Label($"Health: {health.CurrentHealth}");
                 GUILayout.Label($"Health Points : {playerStats.HealthPoints.Value}");
+                GUILayout.Label($"Invincibility : {health.IsInvincible}");
                 GUILayout.Label($"Movement Speed : {playerStats.MovementSpeed.Value}");
                 GUILayout.Label($"Gold Loot Rate : {playerStats.GoldLootRate.Value}");
                 GUILayout.Label($"Gold Loot Range : {playerStats.GoldLootRange.Value}");
@@ -38,7 +39,6 @@ namespace GGJ2026
                 GUILayout.Label($"Bullet Pierce : {playerStats.BulletPierce.Value}");
                 GUILayout.Label($"Bullet Spread : {playerStats.BulletSpread.Value}");
 
-
                 GUILayout.Space(10);
 
                 if (GUILayout.Button("Give +100 Gold"))
@@ -49,6 +49,11 @@ namespace GGJ2026
                 if (GUILayout.Button("Heal Full"))
                 {
                     health.Apply(new Heal(health.MaxHealth));
+                }
+                
+                if (GUILayout.Button("Toggle Invincibility"))
+                {
+                    PlayerController.Instance.PlayerHealth.ToggleInvincibility();
                 }
 
                 GUILayout.EndArea();
