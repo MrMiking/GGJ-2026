@@ -1,0 +1,455 @@
+fileFormatVersion: 2
+guid: ab82edf0f91675d499f38964dadcea61
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -4520120102197401415
+    second: QuoicouGames_White_0
+  - first:
+      213: -7444967900135510777
+    second: QuoicouGames_White_1
+  - first:
+      213: 3510620902909166056
+    second: QuoicouGames_White_2
+  - first:
+      213: -7311906792405151387
+    second: QuoicouGames_White_3
+  - first:
+      213: 318002631097915311
+    second: QuoicouGames_White_4
+  - first:
+      213: 4511624590220752964
+    second: QuoicouGames_White_5
+  - first:
+      213: -8130530564651003511
+    second: QuoicouGames_White_6
+  - first:
+      213: -2584962840262482894
+    second: QuoicouGames_White_7
+  - first:
+      213: 5678087916261526469
+    second: QuoicouGames_White_8
+  - first:
+      213: -9051007869783595948
+    second: QuoicouGames_White_9
+  - first:
+      213: -4306300793814281024
+    second: QuoicouGames_White_10
+  - first:
+      213: 8411517402201743089
+    second: QuoicouGames_White_11
+  - first:
+      213: -6844086390915537332
+    second: QuoicouGames_White_12
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: QuoicouGames_White_0
+      rect:
+        serializedVersion: 2
+        x: 633
+        y: 223
+        width: 532
+        height: 554
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9b8eb6637be4541c0800000000000000
+      internalID: -4520120102197401415
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: QuoicouGames_White_1
+      rect:
+        serializedVersion: 2
+        x: 1148
+        y: 326
+        width: 189
+        height: 194
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 70dac34d3292ea890800000000000000
+      internalID: -7444967900135510777
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: QuoicouGames_White_2
+      rect:
+        serializedVersion: 2
+        x: 1359
+        y: 332
+        width: 139
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8e146f27c1b38b030800000000000000
+      internalID: 3510620902909166056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: QuoicouGames_White_3
+      rect:
+        serializedVersion: 2
+        x: 1519
+        y: 332
+        width: 189
+        height: 188
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 561dcef2383e68a90800000000000000
+      internalID: -7311906792405151387
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: QuoicouGames_White_4
+      rect:
+        serializedVersion: 2
+        x: 1732
+        y: 335
+        width: 31
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa71b3845b5c96400800000000000000
+      internalID: 318002631097915311
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: QuoicouGames_White_5
+      rect:
+        serializedVersion: 2
+        x: 1787
+        y: 332
+        width: 158
+        height: 188
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 448760449a28c9e30800000000000000
+      internalID: 4511624590220752964
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: QuoicouGames_White_6
+      rect:
+        serializedVersion: 2
+        x: 1947
+        y: 332
+        width: 189
+        height: 188
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9815582678d8a2f80800000000000000
+      internalID: -8130530564651003511
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: QuoicouGames_White_7
+      rect:
+        serializedVersion: 2
+        x: 2158
+        y: 332
+        width: 139
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 234e1941efd502cd0800000000000000
+      internalID: -2584962840262482894
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: QuoicouGames_White_8
+      rect:
+        serializedVersion: 2
+        x: 2386
+        y: 332
+        width: 182
+        height: 188
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5cbc43440ee9cce40800000000000000
+      internalID: 5678087916261526469
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: QuoicouGames_White_9
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 335
+        width: 173
+        height: 186
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 454a846fb4c546280800000000000000
+      internalID: -9051007869783595948
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: QuoicouGames_White_10
+      rect:
+        serializedVersion: 2
+        x: 2751
+        y: 335
+        width: 179
+        height: 186
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c497b86e32fc34c0800000000000000
+      internalID: -4306300793814281024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: QuoicouGames_White_11
+      rect:
+        serializedVersion: 2
+        x: 2962
+        y: 334
+        width: 110
+        height: 183
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1fe504cd286bbb470800000000000000
+      internalID: 8411517402201743089
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: QuoicouGames_White_12
+      rect:
+        serializedVersion: 2
+        x: 3088
+        y: 332
+        width: 129
+        height: 188
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c46e46160bbe401a0800000000000000
+      internalID: -6844086390915537332
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      QuoicouGames_White_0: -4520120102197401415
+      QuoicouGames_White_1: -7444967900135510777
+      QuoicouGames_White_10: -4306300793814281024
+      QuoicouGames_White_11: 8411517402201743089
+      QuoicouGames_White_12: -6844086390915537332
+      QuoicouGames_White_2: 3510620902909166056
+      QuoicouGames_White_3: -7311906792405151387
+      QuoicouGames_White_4: 318002631097915311
+      QuoicouGames_White_5: 4511624590220752964
+      QuoicouGames_White_6: -8130530564651003511
+      QuoicouGames_White_7: -2584962840262482894
+      QuoicouGames_White_8: 5678087916261526469
+      QuoicouGames_White_9: -9051007869783595948
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
