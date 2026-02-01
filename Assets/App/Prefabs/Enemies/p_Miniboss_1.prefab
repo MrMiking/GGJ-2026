@@ -244,7 +244,7 @@ MonoBehaviour:
   m_DashDistance: 8
   m_DashSpeed: 30
   m_DashCooldown: 3
-  m_DashPreparationTime: 1
+  m_DashPreparationTime: 3
   m_ContactDamage: 20
   m_ContactKnockbackForce: 20
   m_DashDamage: 60
