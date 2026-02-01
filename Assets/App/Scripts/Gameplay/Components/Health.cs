@@ -1,6 +1,7 @@
 using MVsToolkit.Dev;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 namespace GGJ2026
 {
@@ -10,6 +11,8 @@ namespace GGJ2026
         public delegate void OnHealDelegate(float previousHealth, float newHealth, in Heal heal);
         public delegate void OnMaxHealthChangedDelegate(float previousValue, float newValue);
         public delegate void OnDeathDelegate();
+
+        [SerializeField] private Image m_HealthBar;
 
         [SerializeField] private float m_MaxHealth = 100.0f;
         [SerializeField] private float m_CurrentHealth = 100.0f;
@@ -27,7 +30,14 @@ namespace GGJ2026
         public float CurrentHealth
         {
             get => m_CurrentHealth;
-            private set => m_CurrentHealth = Mathf.Clamp(value, 0.0f, m_MaxHealth);
+            private set
+            {
+                if (m_HealthBar != null)
+                {
+                    m_HealthBar.fillAmount = value / m_MaxHealth;
+                }
+                m_CurrentHealth = Mathf.Clamp(value, 0.0f, m_MaxHealth);
+            }
         }
 
         public float MaxHealth
