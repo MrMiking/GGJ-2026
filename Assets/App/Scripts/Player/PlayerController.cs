@@ -69,6 +69,8 @@ public class PlayerController : RegularSingleton<PlayerController>
 
     private void Update()
     {
+        if (GameTimeline.Instance.IsPaused) return;
+        
         // Compute the target velocity
         if (m_MoveInput != Vector2.zero)
         {

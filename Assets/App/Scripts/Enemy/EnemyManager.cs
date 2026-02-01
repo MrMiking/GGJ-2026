@@ -49,6 +49,7 @@ namespace GGJ2026
         
         private void Update()
         {
+            if (GameTimeline.Instance.IsPaused) return;
             RefreshEnemiesPath();
             UpdateEnemiesState();
             CheckEnemiesAutoPilot();
