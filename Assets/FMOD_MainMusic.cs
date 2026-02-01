@@ -35,22 +35,23 @@ namespace GGJ2026
 
         private void UpdateState(GameTimeline.TimelineEvent ev)
         {
-            if (ev == GameTimeline.TimelineEvent.Introduction)
+            switch (ev)
             {
-                m_Emitter.SetParameter(m_ParameterIDStart,1f);
-                this.Delay(()=>m_Emitter.SetParameter(m_ParameterIDStart,0f),m_DurationStinger);
-            }
-
-            if (ev == GameTimeline.TimelineEvent.Shop)
-            {
-                m_Emitter.SetParameter(m_ParameterIDShop,1f);
-                this.Delay(()=> m_Emitter.SetParameter(m_ParameterIDShop,0f),m_DurationStinger);
-            }
-
-            if (ev == GameTimeline.TimelineEvent.Defeat)
-            {
-                m_Emitter.SetParameter(m_ParameterIDDefeat,1f);
-                this.Delay(()=> m_Emitter.SetParameter(m_ParameterIDDefeat,0f),m_DurationStinger);
+                case GameTimeline.TimelineEvent.Introduction:
+                    m_Emitter.SetParameter(m_ParameterIDStart,1f);
+                    this.Delay(()=>m_Emitter.SetParameter(m_ParameterIDStart,0f),m_DurationStinger);
+                    break;
+                case GameTimeline.TimelineEvent.Shop:
+                    m_Emitter.SetParameter(m_ParameterIDShop,1f);
+                    this.Delay(()=> m_Emitter.SetParameter(m_ParameterIDShop,0f),m_DurationStinger);
+                    break;
+                case GameTimeline.TimelineEvent.Defeat:
+                    m_Emitter.SetParameter(m_ParameterIDDefeat,1f);
+                    this.Delay(()=> m_Emitter.SetParameter(m_ParameterIDDefeat,0f),m_DurationStinger);
+                    break;
+                case GameTimeline.TimelineEvent.Wave:
+                    UpdateSoundHealth();
+                    break;
             }
         }
 
