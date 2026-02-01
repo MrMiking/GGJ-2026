@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      subsonic_mask_sprite_0: -538271026206475143
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
