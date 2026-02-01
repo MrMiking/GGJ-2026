@@ -1,5 +1,6 @@
 using System;
 using System.Linq;
+using System.Text;
 using UnityEngine;
 
 namespace GGJ2026
@@ -70,21 +71,45 @@ namespace GGJ2026
                 return value.ToString("+0.##;-0.##");
             }
 
+            static string FormatEnumName(StatType value)
+            {
+                string text = value.ToString();
+                var sb = new StringBuilder();
+
+                for (int i = 0; i < text.Length; i++)
+                {
+                    char c = text[i];
+
+                    if (i > 0 && char.IsUpper(c))
+                        sb.Append(' ');
+
+                    sb.Append(c);
+                }
+
+                return sb.ToString();
+            }
+
             var args = m_StatEffects.Select(effect =>
             {
+                var name = FormatEnumName(effect.stat);
+                var value = "?";
                 switch (effect.modifierType)
                 {
                     case StatModifierType.Flat: 
-                        
-                        return FormatSigned(effect.statValuePerLevel[Level]);
+                        value = FormatSigned(effect.statValuePerLevel[Level]);
+                        break;
                     case StatModifierType.PercentAdd:
-                        return FormatSigned(effect.statValuePerLevel[Level] * 100f) + "%";
+                        value = FormatSigned(effect.statValuePerLevel[Level] * 100f) + "%";
+                        break;
                     case StatModifierType.PercentMult: 
-                        return FormatSigned(effect.statValuePerLevel[Level] * 100f) + "%";
+                        value = FormatSigned(effect.statValuePerLevel[Level] * 100f) + "%";
+                        break;
                 }
-                return "?";
-            }).ToArray();
-            return string.Format(Mask.Description, args);
+
+                return $"{name} {value}";
+            });
+
+            return string.Join("\n", args);
         }
 
         private void OnDestroy()
