@@ -152,7 +152,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_MinGoldAmount: 1
   m_MaxGoldAmount: 3
-  m_FoodProbability: 0.02
+  m_FoodProbability: 0.05
   FoodPrefab: {fileID: 8630149311980692033, guid: 0c65ab9c4601c1b4cbd926d92d78f25a, type: 3}
 --- !u!61 &9154445651098001018
 BoxCollider2D:
