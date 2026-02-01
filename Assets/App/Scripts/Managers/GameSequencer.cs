@@ -10,14 +10,19 @@ namespace GGJ2026
         [SerializeField] private float m_TimerBeforeShop = 10f;
         [Header("References")]
         [SerializeField] private InputActionReference m_InputActionReference;
-        
+        [SerializeField] private bool m_AutoStart = true;
+
         public float TimerBeforeShop => m_TimerBeforeShop;
         
         private IEnumerator Start()
         {
-            yield return new WaitUntil(m_InputActionReference.action.WasPressedThisFrame);
-            GameTimeline.Instance.CurrentTimelineEvent = GameTimeline.TimelineEvent.Introduction;
-            yield return new WaitForSeconds(2f);
+            if (m_AutoStart == false)
+            {
+                yield return new WaitUntil(m_InputActionReference.action.WasPressedThisFrame);
+                GameTimeline.Instance.CurrentTimelineEvent = GameTimeline.TimelineEvent.Introduction;
+                yield return new WaitForSeconds(2f);
+            }
+
             StartCoroutine(GameLoop());
         }
         

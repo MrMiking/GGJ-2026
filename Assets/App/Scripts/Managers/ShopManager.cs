@@ -93,15 +93,30 @@ namespace GGJ2026
         public void OnSlotClicked(MaskShopSlot slot)
         {
             Mask mask = slot.CurrentMask;
-            
+
+
+            // Temporary for timothée to balance the game
+            // Maybe change by locking the slot
+            int level = GetMaskLevelInInventory(mask);
+            int price = Mathf.CeilToInt(mask.Price * mask.PricePerLevel[level]);
+
+            if (GameManager.Instance.CurrentGold < price)
+            {
+                Debug.Log("Not enough money !");
+                return;
+            }
+
+
             if (m_Inventory.TryGetMask(mask))
             {
                 m_Inventory.IncreaseMaskLevel(mask);
                 slot.Clear();
+                GameManager.Instance.CurrentGold -= price;
             }
             else if (m_Inventory.TryAddMask(mask))
             {
                 slot.Clear();
+                GameManager.Instance.CurrentGold -= price;
             }
             else
             {
