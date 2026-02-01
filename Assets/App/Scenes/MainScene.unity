@@ -107820,6 +107820,14 @@ PrefabInstance:
       propertyPath: m_FireRate
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8946319989619969640, guid: b7cbf38e95fd9c448851a00c3f5b0098, type: 3}
+      propertyPath: managedReferences[1758465469524738126].MoveToMax
+      value: 1.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 8946319989619969640, guid: b7cbf38e95fd9c448851a00c3f5b0098, type: 3}
+      propertyPath: managedReferences[1758465469524738126].MoveToMin
+      value: 0.95
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -165178,7 +165186,7 @@ MonoBehaviour:
   NoiseProfile: {fileID: 11400000, guid: bcf6524ce6451f34cb7106d0c00da9a5, type: 2}
   PivotOffset: {x: 0, y: 0, z: 0}
   AmplitudeGain: 0
-  FrequencyGain: 8.446978
+  FrequencyGain: 8.448324
   m_NoiseOffsets: {x: 0, y: 0, z: 0}
 --- !u!114 &2073763633
 MonoBehaviour:
