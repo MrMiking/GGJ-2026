@@ -50,8 +50,8 @@ MonoBehaviour:
   - stat: 0
     modifierType: 1
     statValuePerLevel:
+    - 0.5
+    - 0.5
     - 1
     - 1
-    - 2
-    - 2
-    - 3
+    - 1.5
