@@ -31,10 +31,10 @@ namespace GGJ2026
 
         private void UpdateState(GameTimeline.TimelineEvent ev)
         {
-            if (ev != GameTimeline.TimelineEvent.Wave)
-            {
-                DestroyAllEnemies();
-            }
+            // if (ev != GameTimeline.TimelineEvent.Wave)
+            // {
+            //     DestroyAllEnemies();
+            // }
         }
 
         public void Register(BaseEnemy baseEnemy)
