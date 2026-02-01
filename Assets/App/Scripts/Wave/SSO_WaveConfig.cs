@@ -1,10 +1,11 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 [CreateAssetMenu(fileName = "SSO_WaveConfig", menuName = "SSO/Wave/SSO_WaveConfig")]
 public class SSO_WaveConfig : ScriptableObject
 {
     [Header("Settings")]
-    public GameObject[] EnemiesPrefabs;
+    public EnemySpawnContext[] Enemies;
     public int EnemiesCount = 0;
     public WaveBurst[] Bursts;
     
@@ -13,5 +14,12 @@ public class SSO_WaveConfig : ScriptableObject
     {
         [Tooltip("In Seconds")]public int TimestampStart;
         public int BurstCount;
+    }
+    
+    [Serializable]
+    public struct EnemySpawnContext
+    {
+        public GameObject Enemy;
+        public float Percentage;
     }
 }
