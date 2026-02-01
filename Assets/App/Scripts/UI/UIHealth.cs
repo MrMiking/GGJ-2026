@@ -40,6 +40,10 @@ public class UIHealth : MonoBehaviour
 
    private void UpdateHealthUI(float previousHealth, float newHealth, in Damage damage) => UpdateHealthUI();
 
-   private void UpdateHealthUI() => m_HealthBar.UpdateBar(PlayerController.Instance.PlayerHealth.CurrentHealth, 0.0f,
-       PlayerController.Instance.PlayerHealth.MaxHealth, true);
+   private void UpdateHealthUI()
+   {
+       if (!m_Container.activeInHierarchy) return;
+       m_HealthBar.UpdateBar(PlayerController.Instance.PlayerHealth.CurrentHealth, 0.0f,
+           PlayerController.Instance.PlayerHealth.MaxHealth, true);
+   }
 }
