@@ -41,6 +41,12 @@ namespace GGJ2026
             m_Health.OnDeath += Die;
         }
 
+        public virtual void Release()
+        {
+            GameManager.Instance.EnemiesDefeated++;
+            PoolManager.Instance.ReturnToPool(GameObject, PoolKey);
+        }
+        
         #endregion
     }
 }
