@@ -34,7 +34,7 @@ namespace GGJ2026
                     m_ScoreContainer.SetActive(true);
                     int score = GameManager.Instance.Score;
                     m_ScoreText.text = score.ToString();
-                }, m_FadeDuration);
+                }, m_FadeDuration, false);
             }
         }
 

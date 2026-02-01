@@ -315,4 +315,11 @@ MonoBehaviour:
   m_ParameterIDShop: Shop
   m_ParameterIDDefeat: Death
   m_ParameterIDLife: Life
+  m_CoinSound:
+    Guid:
+      Data1: 893815242
+      Data2: 1313271282
+      Data3: 898139798
+      Data4: 362752277
+    Path: event:/SoundEffect/MainGame/GoldGain
   m_DurationStinger: 0.1

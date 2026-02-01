@@ -17,11 +17,14 @@ namespace MVsToolkit.Utilities
             hook.StartCoroutine(DelayCoroutine());
         }
 
-        public static void Delay(this MonoBehaviour hook, Action ev, float time)
+        public static void Delay(this MonoBehaviour hook, Action ev, float time, bool affectTimeScale = true)
         {
             IEnumerator DelayCoroutine()
             {
-                yield return new WaitForSeconds(time);
+                if (affectTimeScale)
+                    yield return new WaitForSeconds(time);
+                else
+                    yield return new WaitForSecondsRealtime(time);
                 ev?.Invoke();
             }
 

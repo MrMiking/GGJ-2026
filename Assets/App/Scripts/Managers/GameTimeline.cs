@@ -1,4 +1,5 @@
 using System;
+using MoreMountains.Feedbacks;
 using UnityEngine;
 
 namespace GGJ2026
@@ -27,12 +28,14 @@ namespace GGJ2026
         public void Pause()
         {
             IsPaused = true;
+            MMTimeManager.Instance.UpdateTimescale = false;
             Time.timeScale = 0;
         }
 
         public void Resume()
         {
             IsPaused = false;
+            MMTimeManager.Instance.UpdateTimescale = true;
             Time.timeScale = 1;
         }
 
