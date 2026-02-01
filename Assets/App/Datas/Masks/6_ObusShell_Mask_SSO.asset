@@ -39,4 +39,4 @@ MonoBehaviour:
   m_BehaviourPrefab: {fileID: -2610133214841175153, guid: 0bcf1e1f6d2a9cd4dae8bdb59ae50955, type: 3}
   m_DisplayName: Obus Shell
   m_Description: 
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 34ca25c315633064693ea529ce793931, type: 3}
