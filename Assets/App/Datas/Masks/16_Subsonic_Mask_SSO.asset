@@ -37,4 +37,6 @@ MonoBehaviour:
   - 2
   - 2
   m_BehaviourPrefab: {fileID: -2610133214841175153, guid: 90c0821bebe95bf4da4950c7cf744186, type: 3}
-  m_Sprite: {fileID: 0}
+  m_DisplayName: Subsonic
+  m_Description: 
+  m_Sprite: {fileID: -538271026206475143, guid: 5b58192d258bac149b7e51a44cb34756, type: 3}

@@ -37,4 +37,6 @@ MonoBehaviour:
   - 2
   - 2
   m_BehaviourPrefab: {fileID: -2610133214841175153, guid: e75acc16dafe79f4a86cf7ae0cfdc8fa, type: 3}
-  m_Sprite: {fileID: 0}
+  m_DisplayName: Thompson
+  m_Description: 
+  m_Sprite: {fileID: 21300000, guid: 5f65108e78e702b4e9496f4414d3610e, type: 3}

@@ -37,4 +37,6 @@ MonoBehaviour:
   - 2
   - 2
   m_BehaviourPrefab: {fileID: -2610133214841175153, guid: 37aa16e69a7f8854b955ac5cd5e5435e, type: 3}
-  m_Sprite: {fileID: 0}
+  m_DisplayName: Minimum wage
+  m_Description: 
+  m_Sprite: {fileID: 21300000, guid: cb0e40026a457b9428ed83fabaa63db8, type: 3}

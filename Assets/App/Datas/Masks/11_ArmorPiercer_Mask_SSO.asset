@@ -37,4 +37,6 @@ MonoBehaviour:
   - 2
   - 2
   m_BehaviourPrefab: {fileID: -2610133214841175153, guid: c285021f9f77ae844a8a5c014494c489, type: 3}
-  m_Sprite: {fileID: 0}
+  m_DisplayName: Armor Piercing
+  m_Description: 
+  m_Sprite: {fileID: 21300000, guid: 91f40819041b4364a996ee84a3db3850, type: 3}

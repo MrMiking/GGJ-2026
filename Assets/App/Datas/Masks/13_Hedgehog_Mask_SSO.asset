@@ -37,4 +37,6 @@ MonoBehaviour:
   - 2
   - 2
   m_BehaviourPrefab: {fileID: -2610133214841175153, guid: 9cba1bdfd035e2447940442afe10b3ed, type: 3}
-  m_Sprite: {fileID: 0}
+  m_DisplayName: Hedgehog
+  m_Description: 
+  m_Sprite: {fileID: 2758765560313375364, guid: 2691e5be86b02ff47abf274cd5614992, type: 3}

@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9a4b7ed1b744661ad8c2ba0af114736, type: 3}
+  m_Name: SSO_WaveConfig_7
+  m_EditorClassIdentifier: 
+  Enemies:
+  - Enemy: {fileID: 487814550502994093, guid: 064cf1ee032e05d4c9b92a55a29d77a8, type: 3}
+    Percentage: 75
+  - Enemy: {fileID: 487814550502994093, guid: 3088dacc3b4befb499b8c0a9f988a701, type: 3}
+    Percentage: 75
+  - Enemy: {fileID: 487814550502994093, guid: 292bad002e95c6d4d856e3d8aea1aded, type: 3}
+    Percentage: 25
+  EnemiesCount: 15
+  Bursts:
+  - TimestampStart: 5
+    BurstCount: 30
+  - TimestampStart: 5
+    BurstCount: 3

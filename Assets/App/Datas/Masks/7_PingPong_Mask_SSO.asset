@@ -37,4 +37,6 @@ MonoBehaviour:
   - 2
   - 2
   m_BehaviourPrefab: {fileID: -2610133214841175153, guid: 9247e699ba5b6fe4ea4838dd2d1b1c92, type: 3}
-  m_Sprite: {fileID: 0}
+  m_DisplayName: Ping Pong
+  m_Description: 
+  m_Sprite: {fileID: 21300000, guid: 1d38e6e5195640849aad8cb43b113f21, type: 3}

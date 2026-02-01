@@ -37,4 +37,6 @@ MonoBehaviour:
   - 2
   - 2
   m_BehaviourPrefab: {fileID: -2610133214841175153, guid: f7c2fa3d55fbb6340ae47d98099dc12f, type: 3}
-  m_Sprite: {fileID: 0}
+  m_DisplayName: Multibarrel
+  m_Description: 
+  m_Sprite: {fileID: 21300000, guid: fecbe9eb9227e0942a04898687f61599, type: 3}

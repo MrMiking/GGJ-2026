@@ -37,4 +37,6 @@ MonoBehaviour:
   - 2
   - 2
   m_BehaviourPrefab: {fileID: -2610133214841175153, guid: a9320c2eb9e87e64c8021c18e5c55914, type: 3}
-  m_Sprite: {fileID: 0}
+  m_DisplayName: Magnet
+  m_Description: 
+  m_Sprite: {fileID: 21300000, guid: ccc852d5193238246b706f8a737081b8, type: 3}
