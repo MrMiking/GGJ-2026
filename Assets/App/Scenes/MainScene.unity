@@ -107793,6 +107793,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: p_Player
       objectReference: {fileID: 0}
+    - target: {fileID: 6942166352126938935, guid: b7cbf38e95fd9c448851a00c3f5b0098, type: 3}
+      propertyPath: managedReferences[7397516052010631362].BumpScaleMax.x
+      value: -30
+      objectReference: {fileID: 0}
+    - target: {fileID: 6942166352126938935, guid: b7cbf38e95fd9c448851a00c3f5b0098, type: 3}
+      propertyPath: managedReferences[7397516052010631362].BumpScaleMax.y
+      value: -30
+      objectReference: {fileID: 0}
+    - target: {fileID: 6942166352126938935, guid: b7cbf38e95fd9c448851a00c3f5b0098, type: 3}
+      propertyPath: managedReferences[7397516052010631362].BumpScaleMax.z
+      value: -30
+      objectReference: {fileID: 0}
+    - target: {fileID: 6942166352126938935, guid: b7cbf38e95fd9c448851a00c3f5b0098, type: 3}
+      propertyPath: managedReferences[7397516052010631362].BumpScaleMin.x
+      value: -20
+      objectReference: {fileID: 0}
+    - target: {fileID: 6942166352126938935, guid: b7cbf38e95fd9c448851a00c3f5b0098, type: 3}
+      propertyPath: managedReferences[7397516052010631362].BumpScaleMin.y
+      value: -20
+      objectReference: {fileID: 0}
+    - target: {fileID: 6942166352126938935, guid: b7cbf38e95fd9c448851a00c3f5b0098, type: 3}
+      propertyPath: managedReferences[7397516052010631362].BumpScaleMin.z
+      value: -20
+      objectReference: {fileID: 0}
     - target: {fileID: 7979868289536678622, guid: b7cbf38e95fd9c448851a00c3f5b0098, type: 3}
       propertyPath: m_FireRate
       value: 1
@@ -109265,7 +109289,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1488472134
 Transform:
   m_ObjectHideFlags: 0
