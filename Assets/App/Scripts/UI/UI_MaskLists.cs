@@ -6,24 +6,24 @@ namespace GGJ2026
     public class UI_MaskLists : MonoBehaviour
     {
         [Header("References")]
-        [SerializeField] private MaskInventory m_MaskInventory;
         [SerializeField] private GameObject m_MaskPrefab;
         [SerializeField] private Transform m_Container;
+        private readonly Dictionary<Mask, UI_MaskEntry> m_Entries = new();
         
-        private readonly Dictionary<Mask, UI_MaskEntry> m_Entries = new Dictionary<Mask, UI_MaskEntry>();
+        private MaskInventory MaskInventory => PlayerController.Instance.Inventory;
 
         private void OnEnable()
         {
-            m_MaskInventory.OnMaskAttached += AddMask;
-            m_MaskInventory.OnMaskRemoved += RemoveMask;
-            m_MaskInventory.OnMaskLevelChanged += UpdateMaskLevel;
+            MaskInventory.OnMaskAttached += AddMask;
+            MaskInventory.OnMaskRemoved += RemoveMask;
+            MaskInventory.OnMaskLevelChanged += UpdateMaskLevel;
         }
 
         private void OnDisable()
         {
-            m_MaskInventory.OnMaskAttached -= AddMask;
-            m_MaskInventory.OnMaskRemoved -= RemoveMask;
-            m_MaskInventory.OnMaskLevelChanged -= UpdateMaskLevel;
+            MaskInventory.OnMaskAttached -= AddMask;
+            MaskInventory.OnMaskRemoved -= RemoveMask;
+            MaskInventory.OnMaskLevelChanged -= UpdateMaskLevel;
         }
 
         private void AddMask(Mask mask)
@@ -34,7 +34,7 @@ namespace GGJ2026
             if (go.TryGetComponent<UI_MaskEntry>(out var entry))
             {
                 entry.Setup(mask);
-                entry.SetLevel(m_MaskInventory.GetMaskLevel(mask));
+                entry.SetLevel(MaskInventory.GetMaskLevel(mask));
                 m_Entries.Add(mask, entry);
             }
         }

@@ -1,3 +1,5 @@
+using System;
+using System.Diagnostics.Tracing;
 using MVsToolkit.Dev;
 using UnityEngine;
 using TMPro;
@@ -17,6 +19,8 @@ namespace GGJ2026
         
         private int m_RerollCount;
         private MaskInventory m_Inventory => PlayerController.Instance.Inventory;
+
+        public event Action OnCloseShop; 
         
         [System.Serializable]
         public class ShopPricing
@@ -49,6 +53,7 @@ namespace GGJ2026
             GameStateManager.Instance.PopContext(GameState.Shop);
             m_ShopPanel.SetActive(false);
             m_Pricing.Reset();
+            OnCloseShop?.Invoke();
         }
         
         public void Reroll()

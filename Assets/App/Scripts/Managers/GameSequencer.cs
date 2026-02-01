@@ -1,6 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UIElements;
 
 namespace GGJ2026
 {
@@ -15,7 +17,7 @@ namespace GGJ2026
         [SerializeField] private bool m_AutoStart = true;
 
         public float TimerBeforeShop => m_TimerBeforeShop;
-        
+
         private IEnumerator Start()
         {
             if (!m_AutoStart)
@@ -36,22 +38,31 @@ namespace GGJ2026
         {
             while (GameTimeline.Instance.CurrentTimelineEvent != GameTimeline.TimelineEvent.Defeat)
             {
-                // Wave Phase
-                GameManager.Instance.Level++;
-                GameTimeline.Instance.CurrentTimelineEvent = GameTimeline.TimelineEvent.Wave;
                 yield return WaveLoop();
-                
-                // Shop Phase
-                GameTimeline.Instance.CurrentTimelineEvent = GameTimeline.TimelineEvent.Shop;
-                ShopManager.Instance.OpenShop();
-                yield return new WaitWhile(()=> GameStateManager.Instance.CurrentState == GameState.Shop);
+                yield return ShopLoop();
             }
 
             StartCoroutine(DefeatSequence());
         }
 
+        private static IEnumerator ShopLoop()
+        {
+            // Shop Phase
+            bool shopRunning = true;
+            void ShopCloseGameTimeline() => shopRunning = false;
+            ShopManager.Instance.OnCloseShop += ShopCloseGameTimeline;
+            GameTimeline.Instance.CurrentTimelineEvent = GameTimeline.TimelineEvent.Shop;
+            ShopManager.Instance.OpenShop();
+            yield return new WaitWhile(()=> shopRunning);
+            ShopManager.Instance.OnCloseShop -= ShopCloseGameTimeline;
+        }
+
         private IEnumerator WaveLoop()
         {
+            // Wave Phase
+            GameManager.Instance.Level++;
+            GameTimeline.Instance.CurrentTimelineEvent = GameTimeline.TimelineEvent.Wave;
+            
             float timer = 0;
             
             while (timer < m_TimerBeforeShop)
