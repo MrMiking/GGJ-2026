@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 2735192378021667322}
   - component: {fileID: 717599754301197818}
   m_Layer: 6
-  m_Name: HugeEnemy
+  m_Name: HugeEnemy 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -88,7 +88,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Health: {fileID: 2735192378021667322}
-  m_ContactEnemySettings: {fileID: 11400000, guid: ee6f4915caac42349ac85ddbd781b3fe, type: 2}
+  m_ContactEnemySettings: {fileID: 11400000, guid: b830a50c3f0fa434abd66bc4f725853f, type: 2}
   m_NavMeshAgent: {fileID: 6812247506224723449}
 --- !u!195 &6812247506224723449
 NavMeshAgent:
@@ -826,7 +826,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: adc85ffe050ab0542b0199689ea5f1b5, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

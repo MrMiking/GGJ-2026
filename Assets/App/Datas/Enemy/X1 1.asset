@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d27de263b48943b2bdb2bd14edde689d, type: 3}
-  m_Name: SlowySlime
+  m_Name: X1 1
   m_EditorClassIdentifier: 
-  Speed: 1.2
+  Speed: 1
   AttackRange: 1
-  AttackCooldown: 0.7
-  AttackDamage: 15
-  KnockbackForce: 5
+  AttackCooldown: 1.4
+  AttackDamage: 60
+  KnockbackForce: 10

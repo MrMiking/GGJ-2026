@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f9a4b7ed1b744661ad8c2ba0af114736, type: 3}
-  m_Name: SSO_WaveConfig_12
+  m_Name: SSO_WaveConfig_13
   m_EditorClassIdentifier: 
   Enemies:
   - Enemy: {fileID: 487814550502994093, guid: c19263c9566c1924681881e4682430c9, type: 3}
@@ -28,4 +28,4 @@ MonoBehaviour:
   - TimestampStart: 5
     BurstCount: 200
   - TimestampStart: 5
-    BurstCount: 200
+    BurstCount: 300

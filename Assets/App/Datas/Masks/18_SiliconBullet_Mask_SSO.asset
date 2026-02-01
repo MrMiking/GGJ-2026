@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Rarity: 1
   m_MaximumLevel: 20
-  m_Price: 24.99
+  m_Price: 99.99
   m_PricePerLevel:
   - 1
   - 1.5
