@@ -19,7 +19,7 @@ namespace GGJ2026
 
         private SSO_WaveConfig CurrentWaveConfig => m_WavesConfig[Mathf.Min(m_WavesConfig.Length - 1, IndexWave)];
         private int MaxEnemyAmount => m_WavesConfig[Mathf.Min(m_WavesConfig.Length - 1, IndexWave)].EnemiesCount;
-        private int IndexWave => GameManager.Instance ? GameManager.Instance.Level : 0;
+        private int IndexWave => GameManager.Instance ? GameManager.Instance.Level -1: 0;
 
         private int CurrentEnemyAmount => EnemyManager.Instance.EnemyCount;
         
