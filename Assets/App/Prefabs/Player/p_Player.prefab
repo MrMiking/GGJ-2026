@@ -601,7 +601,7 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 0.25
+  m_Radius: 0.45
 --- !u!50 &2347490144141767597
 Rigidbody2D:
   serializedVersion: 5
@@ -679,15 +679,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa2ff58d371ff4d4caf82b41d4378ef7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HealthPoints: 200
-  m_MovementSpeed: 20
+  m_HealthPoints: 100
+  m_MovementSpeed: 10
   m_GoldLootRange: 1.5
   m_BulletDamage: 40
   m_FireRate: 5
-  m_BulletSpeed: 20
+  m_BulletSpeed: 10
   m_BulletSize: 1
-  m_BulletBounce: 1
-  m_BulletPierce: 2
+  m_BulletBounce: 0
+  m_BulletPierce: 0
   m_BulletSpread: 0
 --- !u!114 &2287510017600096252
 MonoBehaviour:
