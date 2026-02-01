@@ -136,8 +136,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b1b020767fc69c4784fd5f328778e26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_MaxHealth: 100
-  m_CurrentHealth: 100
+  m_MaxHealth: 70
+  m_CurrentHealth: 70
   OnDamageEvent:
     m_PersistentCalls:
       m_Calls:

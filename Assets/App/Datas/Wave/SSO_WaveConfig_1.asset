@@ -14,7 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemiesPrefabs:
   - {fileID: 487814550502994093, guid: 09147f2b97976294aac2077e39bc45d6, type: 3}
-  EnemiesCount: 5
+  EnemiesCount: 2
   Bursts:
-  - TimestampStart: 10
+  - TimestampStart: 5
+    BurstCount: 10
+  - TimestampStart: 5
     BurstCount: 20
