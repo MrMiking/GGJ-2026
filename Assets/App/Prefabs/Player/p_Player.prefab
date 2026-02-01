@@ -965,6 +965,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9886d5cf30b40ed4791bcbca4466198b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Renderer: {fileID: 7508423016893605091}
   attackPoint: {fileID: 8351820029606807030}
   bulletPrefabRb: {fileID: 8209347208642705677, guid: f3ee16ebd8f395b4cac99e9177792ebe, type: 3}
   m_AimTarget: {fileID: 3125339416100992559}

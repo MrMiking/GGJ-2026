@@ -7,6 +7,7 @@ using UnityEngine.InputSystem;
 public class PlayerController : RegularSingleton<PlayerController>
 {
     [Header("References")]
+    [SerializeField] SpriteRenderer m_Renderer;
     [SerializeField] Transform attackPoint;
     [SerializeField] Bullet bulletPrefabRb;
     [SerializeField] Transform m_AimTarget;
@@ -74,6 +75,7 @@ public class PlayerController : RegularSingleton<PlayerController>
         // Compute the target velocity
         if (m_MoveInput != Vector2.zero)
         {
+            m_Renderer.flipX = m_MoveInput.x < 0f;
             var characterSpeed = m_CharacterStats.MovementSpeed.Value;
             m_TargetVelocity = m_MoveInput * characterSpeed;
         }
