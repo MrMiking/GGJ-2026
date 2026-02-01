@@ -3,6 +3,8 @@ using System;
 using System.Linq;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.UIElements;
 
 namespace GGJ2026
 {
@@ -20,7 +22,10 @@ namespace GGJ2026
         private int m_RerollCount;
         private MaskInventory m_Inventory => PlayerController.Instance.Inventory;
 
-        public event Action OnCloseShop; 
+        public event Action OnCloseShop;
+
+        public UnityEvent OnBuyFailedEvent;
+        public UnityEvent OnBuyEvent;
         
         [System.Serializable]
         public class ShopPricing
@@ -34,11 +39,11 @@ namespace GGJ2026
             public void Reset() => m_RerollsDone = 0;
         }
 
-
-
         private void Start()
         {
             CloseShop();
+            OnBuyEvent.AddListener(() => FMODUnity.RuntimeManager.PlayOneShot("event:/SoundEffect/Shop/GoldSpend"));
+            OnBuyFailedEvent.AddListener(() => FMODUnity.RuntimeManager.PlayOneShot("event:/SoundEffect/Shop/NoGold"));
         }
 
         [Button]
@@ -60,8 +65,13 @@ namespace GGJ2026
         
         public void Reroll()
         {
-            if (GameManager.Instance.CurrentGold < m_Pricing.GetCurrentRerollPrice()) return;
+            if (GameManager.Instance.CurrentGold < m_Pricing.GetCurrentRerollPrice())
+            {
+                OnBuyFailedEvent.Invoke();
+                return;
+            }
             
+            OnBuyEvent.Invoke();
             GameManager.Instance.CurrentGold -= m_Pricing.GetCurrentRerollPrice();
             m_Pricing.Increment();
             SetupShop();
@@ -69,7 +79,10 @@ namespace GGJ2026
 
         private void SetupShop()
         {
-            m_PriceText.text = $"Reroll ${m_Pricing.GetCurrentRerollPrice()}";
+            var rerollPrice = m_Pricing.GetCurrentRerollPrice();
+            var gold = GameManager.Instance.CurrentGold;
+            m_PriceText.text = $"Reroll ${rerollPrice}";
+            m_PriceText.color = gold < rerollPrice ? Color.red : Color.black;
 
             var pool = m_AvailableMaskPool.GetMaskPoolForLevel(GameManager.Instance.Level);
             var maskListCopy = pool.masks.Clone();
@@ -84,7 +97,7 @@ namespace GGJ2026
                 else
                 {
                     int level = GetMaskLevelInInventory(randomMask);
-                    slot.Setup(randomMask, level);
+                    slot.Setup(randomMask, level, CanBuyMask(randomMask) == false);
                 }
             }
         }
@@ -96,7 +109,7 @@ namespace GGJ2026
                 if (slot.CurrentMask != null)
                 {
                     int level = GetMaskLevelInInventory(slot.CurrentMask);
-                    slot.Setup(slot.CurrentMask, level);
+                    slot.Setup(slot.CurrentMask, level, CanBuyMask(slot.CurrentMask) == false);
                 }
             }
         }
@@ -106,23 +119,43 @@ namespace GGJ2026
             return m_Inventory.GetMaskLevel(mask);
         }
 
+        public bool CanBuyMask(Mask mask)
+        {
+            int level = GetMaskLevelInInventory(mask);
+            int price = GetMaskPrice(mask, level);
+
+            if (GameManager.Instance.CurrentGold < price)
+            {
+                return false;
+            }
+
+            if (m_Inventory.TryGetMask(mask) == false && m_Inventory.HasEmptySlot() == false)
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+        public int GetMaskPrice(Mask mask, int level)
+        {
+            return Mathf.CeilToInt(mask.Price * mask.PricePerLevel[level]);
+        }
+
         public void OnSlotClicked(MaskShopSlot slot)
         {
             Mask mask = slot.CurrentMask;
 
             if (mask == null) return;
 
-            // Temporary for timoth�e to balance the game
-            // Maybe change by locking the slot
-            int level = GetMaskLevelInInventory(mask);
-            int price = Mathf.CeilToInt(mask.Price * mask.PricePerLevel[level]);
-
-            if (GameManager.Instance.CurrentGold < price)
+            if (CanBuyMask(mask) == false)
             {
-                Debug.Log("Not enough money !");
+                OnBuyFailedEvent.Invoke();
                 return;
             }
 
+            int level = GetMaskLevelInInventory(mask);
+            int price = GetMaskPrice(mask, level);
 
             if (m_Inventory.TryGetMask(mask))
             {
@@ -140,6 +173,7 @@ namespace GGJ2026
                 Debug.Log("Inventory Full !");
             }
             
+            OnBuyEvent.Invoke();
             RefreshVisual();
         }
     }
