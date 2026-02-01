@@ -39,3 +39,15 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ba48ea00dec6464409577d441390484a, type: 2}
   - {fileID: 11400000, guid: 15ac572c1dd56624c8e57551ca8bbfa6, type: 2}
   - {fileID: 11400000, guid: 8bd881b1fc463c04bbce4dc7bc256ea4, type: 2}
+  m_MaskPools:
+  - gameLevel: 0
+    masks:
+      entries:
+      - Value: {fileID: 11400000, guid: aece6db577592f841a1ba2b6b38337d7, type: 2}
+        Weight: 1
+      - Value: {fileID: 11400000, guid: be7a0cb7928e4014f9408c995c5f5012, type: 2}
+        Weight: 1
+      - Value: {fileID: 11400000, guid: aa1d6cff0d21ba545b8996b70ccfd609, type: 2}
+        Weight: 1
+      - Value: {fileID: 11400000, guid: 9ad1a9bfc4b075846ac0a6bb6133d095, type: 2}
+        Weight: 1
