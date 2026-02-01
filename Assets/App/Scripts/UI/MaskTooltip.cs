@@ -49,7 +49,7 @@ namespace GGJ2026
             m_TargetAlpha = 1f;
             gameObject.SetActive(true);
             
-            m_NameText.text = mask.name;
+            m_NameText.text = mask.DisplayName;
             
             MaskBehaviour behaviour = Instantiate(mask.BehaviourPrefab);
             behaviour.Configure(mask, currentLevel + 1);
