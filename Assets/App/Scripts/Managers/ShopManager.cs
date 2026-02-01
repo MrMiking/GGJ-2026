@@ -1,6 +1,7 @@
 using MVsToolkit.Dev;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 namespace GGJ2026
 {
@@ -15,8 +16,6 @@ namespace GGJ2026
         [SerializeField] private MaskDatabase m_AvailableMaskPool;
         [SerializeField] private GameObject m_ShopPanel;
         [SerializeField] private TextMeshProUGUI m_PriceText;
-        
-        private int m_RerollCount;
         
         [System.Serializable]
         public class ShopPricing
@@ -70,6 +69,7 @@ namespace GGJ2026
                 
                 int level = GetMaskLevelInInventory(randomMask);
                 slot.Setup(randomMask, level);
+                slot.GetComponent<Button>().interactable = true;
             }
         }
 
@@ -81,6 +81,11 @@ namespace GGJ2026
                 {
                     int level = GetMaskLevelInInventory(slot.CurrentMask);
                     slot.Setup(slot.CurrentMask, level);
+                    slot.GetComponent<Button>().interactable = true;
+                }
+                else
+                {
+                    slot.GetComponent<Button>().interactable = false;
                 }
             }
         }
@@ -99,13 +104,6 @@ namespace GGJ2026
             // Maybe change by locking the slot
             int level = GetMaskLevelInInventory(mask);
             int price = Mathf.CeilToInt(mask.Price * mask.PricePerLevel[level]);
-
-            if (GameManager.Instance.CurrentGold < price)
-            {
-                Debug.Log("Not enough money !");
-                return;
-            }
-
 
             if (m_Inventory.TryGetMask(mask))
             {
