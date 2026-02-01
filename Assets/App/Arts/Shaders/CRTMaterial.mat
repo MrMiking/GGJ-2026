@@ -68,9 +68,9 @@ Material:
     m_Floats:
     - _BUILTIN_QueueControl: 0
     - _BUILTIN_QueueOffset: 0
-    - _Blur_Offset: 0.001
+    - _Blur_Offset: 0.0005
     - _EnableExternalAlpha: 0
-    - _Scan_Lines_Speed: -0.003
+    - _Scan_Lines_Speed: -0.002
     - _ZWrite: 0
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
