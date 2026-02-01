@@ -10,13 +10,13 @@ namespace GGJ2026
         [SerializeField] private ShopPricing m_Pricing;
 
         [Header("References")]
-        [SerializeField] private MaskInventory m_Inventory;
         [SerializeField] private MaskShopSlot[] m_Slots;
         [SerializeField] private MaskDatabase m_AvailableMaskPool;
         [SerializeField] private GameObject m_ShopPanel;
         [SerializeField] private TextMeshProUGUI m_PriceText;
         
         private int m_RerollCount;
+        private MaskInventory m_Inventory => PlayerController.Instance.Inventory;
         
         [System.Serializable]
         public class ShopPricing
