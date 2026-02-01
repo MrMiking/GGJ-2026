@@ -12,6 +12,8 @@ public class GameManager : RegularSingleton<GameManager>
     [SerializeField][ReadOnly] private int m_CurrentGold;
     
     private int m_Level;
+    private int m_EnemiesDefeated;
+    
     
     public int CurrentGold
     {
@@ -23,10 +25,18 @@ public class GameManager : RegularSingleton<GameManager>
         }
     }
 
+    public int Score => m_EnemiesDefeated * m_Level;
+
     public int Level
     {
         get => m_Level;
         set => m_Level = value;
+    }
+    
+    public int EnemiesDefeated
+    {
+        get => m_EnemiesDefeated;
+        set => m_EnemiesDefeated = value;
     }
     
     public event Action<int> OnGoldChange;

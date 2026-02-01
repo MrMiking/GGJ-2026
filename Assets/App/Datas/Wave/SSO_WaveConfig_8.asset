@@ -22,6 +22,6 @@ MonoBehaviour:
   EnemiesCount: 15
   Bursts:
   - TimestampStart: 5
-    BurstCount: 30
+    BurstCount: 50
   - TimestampStart: 5
     BurstCount: 200

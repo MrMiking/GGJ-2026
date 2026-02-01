@@ -136,8 +136,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b1b020767fc69c4784fd5f328778e26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_MaxHealth: 1000
-  m_CurrentHealth: 1000
+  m_MaxHealth: 2000
+  m_CurrentHealth: 2000
   OnDamageEvent:
     m_PersistentCalls:
       m_Calls:
@@ -186,8 +186,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6620060d5f195e4591d729643fa7734, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_MinGoldAmount: 5
-  m_MaxGoldAmount: 10
+  m_MinGoldAmount: 10
+  m_MaxGoldAmount: 15
   m_FoodProbability: 0.02
   FoodPrefab: {fileID: 8630149311980692033, guid: 0c65ab9c4601c1b4cbd926d92d78f25a, type: 3}
 --- !u!1 &1166202448236147293
