@@ -52,7 +52,7 @@ namespace GGJ2026
             m_NameText.text = mask.DisplayName;
             
             MaskBehaviour behaviour = Instantiate(mask.BehaviourPrefab);
-            behaviour.Configure(mask, currentLevel + 1);
+            behaviour.Configure(mask, currentLevel);
             m_DescriptionText.text = behaviour.GetFormattedDescription();
             Destroy(behaviour.gameObject);
             UpdatePosition();

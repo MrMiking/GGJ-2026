@@ -96,13 +96,13 @@ namespace GGJ2026
                 switch (effect.modifierType)
                 {
                     case StatModifierType.Flat: 
-                        value = FormatSigned(effect.statValuePerLevel[Level]);
+                        value = FormatSigned(effect.statValuePerLevel[Level - 1]);
                         break;
                     case StatModifierType.PercentAdd:
-                        value = FormatSigned(effect.statValuePerLevel[Level] * 100f) + "%";
+                        value = FormatSigned(effect.statValuePerLevel[Level - 1] * 100f) + "%";
                         break;
                     case StatModifierType.PercentMult: 
-                        value = FormatSigned(effect.statValuePerLevel[Level] * 100f) + "%";
+                        value = FormatSigned(effect.statValuePerLevel[Level - 1] * 100f) + "%";
                         break;
                 }
 

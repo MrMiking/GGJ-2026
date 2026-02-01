@@ -67,7 +67,7 @@ namespace GGJ2026
         public void OnPointerEnter(PointerEventData eventData)
         {
             if (CurrentMask == null) return;
-            MaskTooltip.Instance.Show(CurrentMask, m_CurrentLevel);
+            MaskTooltip.Instance.Show(CurrentMask, m_CurrentLevel + 1);
         }
 
         public void OnPointerExit(PointerEventData eventData)
