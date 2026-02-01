@@ -53,6 +53,12 @@ namespace GGJ2026
             return true;
         }
 
+        public bool HasEmptySlot()
+        {
+            var firstEmptyIndex = Array.FindIndex(m_Masks, static (m) => m == null);
+            return firstEmptyIndex != -1;
+        }
+
         public void RemoveMask(int index)
         {
             if (index < 0 || index >= InventorySize)
