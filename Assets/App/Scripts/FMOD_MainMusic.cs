@@ -16,6 +16,7 @@ namespace GGJ2026
         [SerializeField] private string m_ParameterIDShop;
         [SerializeField] private string m_ParameterIDDefeat;
         [SerializeField] private string m_ParameterIDLife;
+        [SerializeField] private EventReference m_CoinSound;
         [Space]
         [SerializeField] private float m_DurationStinger;
 
@@ -38,16 +39,17 @@ namespace GGJ2026
             switch (ev)
             {
                 case GameTimeline.TimelineEvent.Introduction:
+                    RuntimeManager.PlayOneShot(m_CoinSound, PlayerController.Instance.transform.position);
                     m_Emitter.SetParameter(m_ParameterIDStart,1f);
-                    this.Delay(()=>m_Emitter.SetParameter(m_ParameterIDStart,0f),m_DurationStinger);
+                    this.Delay(()=>m_Emitter.SetParameter(m_ParameterIDStart,0f),m_DurationStinger,false);
                     break;
                 case GameTimeline.TimelineEvent.Shop:
                     m_Emitter.SetParameter(m_ParameterIDShop,1f);
-                    this.Delay(()=> m_Emitter.SetParameter(m_ParameterIDShop,0f),m_DurationStinger);
+                    this.Delay(()=> m_Emitter.SetParameter(m_ParameterIDShop,0f),m_DurationStinger,false);
                     break;
                 case GameTimeline.TimelineEvent.Defeat:
                     m_Emitter.SetParameter(m_ParameterIDDefeat,1f);
-                    this.Delay(()=> m_Emitter.SetParameter(m_ParameterIDDefeat,0f),m_DurationStinger);
+                    this.Delay(()=> m_Emitter.SetParameter(m_ParameterIDDefeat,0f),m_DurationStinger,false);
                     break;
                 case GameTimeline.TimelineEvent.Wave:
                     UpdateSoundHealth();

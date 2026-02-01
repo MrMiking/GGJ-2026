@@ -208,7 +208,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_MinGoldAmount: 100
   m_MaxGoldAmount: 100
-  m_FoodProbability: 1
+  m_FoodProbability: 0.05
   FoodPrefab: {fileID: 8630149311980692033, guid: 0c65ab9c4601c1b4cbd926d92d78f25a, type: 3}
 --- !u!114 &8242140612228859313
 MonoBehaviour:
@@ -244,7 +244,7 @@ MonoBehaviour:
   m_DashDistance: 8
   m_DashSpeed: 30
   m_DashCooldown: 3
-  m_DashPreparationTime: 1
+  m_DashPreparationTime: 3
   m_ContactDamage: 20
   m_ContactKnockbackForce: 20
   m_DashDamage: 60
@@ -568,8 +568,8 @@ MonoBehaviour:
         Mode: 2
         MoveToScaleMin: {x: 1, y: 1, z: 1}
         MoveToScaleMax: {x: 2, y: 2, z: 2}
-        BumpScaleMin: {x: 20, y: 20, z: 20}
-        BumpScaleMax: {x: 30, y: 30, z: 30}
+        BumpScaleMin: {x: 2, y: 2, z: 2}
+        BumpScaleMax: {x: 3, y: 3, z: 3}
 --- !u!1 &1296246243064233390
 GameObject:
   m_ObjectHideFlags: 0

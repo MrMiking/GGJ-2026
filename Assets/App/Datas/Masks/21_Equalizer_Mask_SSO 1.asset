@@ -17,25 +17,25 @@ MonoBehaviour:
   m_Price: 38.99
   m_PricePerLevel:
   - 1
-  - 1.5
-  - 5
-  - 10
+  - 2
+  - 4
+  - 8
+  - 16
   - 20
-  - 2
-  - 2
-  - 2
-  - 2
-  - 2
-  - 2
-  - 2
-  - 2
-  - 2
-  - 2
-  - 2
-  - 2
-  - 2
-  - 2
-  - 2
+  - 24
+  - 28
+  - 30
+  - 32
+  - 40
+  - 50
+  - 56
+  - 55.5
+  - 120
+  - 150
+  - 200
+  - 250
+  - 1
+  - 1000
   m_BehaviourPrefab: {fileID: -2610133214841175153, guid: 2c68f87fa1955ab4f8b48674fc84bdc2, type: 3}
   m_DisplayName: Equalizer
   m_Description: 

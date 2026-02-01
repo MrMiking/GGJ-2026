@@ -17,25 +17,25 @@ MonoBehaviour:
   m_Price: 13
   m_PricePerLevel:
   - 1
-  - 1.5
-  - 5
-  - 10
+  - 2
+  - 4
+  - 8
+  - 16
   - 20
-  - 2
-  - 2
-  - 2
-  - 2
-  - 2
-  - 2
-  - 2
-  - 2
-  - 2
-  - 2
-  - 2
-  - 2
-  - 2
-  - 2
-  - 2
+  - 24
+  - 28
+  - 30
+  - 32
+  - 40
+  - 50
+  - 56
+  - 55.5
+  - 120
+  - 150
+  - 200
+  - 250
+  - 1
+  - 1000
   m_BehaviourPrefab: {fileID: -2610133214841175153, guid: 48e86a8cbe8387944bcdb83e221fd894, type: 3}
   m_DisplayName: Fast Hammer
   m_Description: 
