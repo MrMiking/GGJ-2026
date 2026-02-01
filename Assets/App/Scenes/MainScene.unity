@@ -165315,6 +165315,18 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5050009908773339245, guid: 3aeaa3811fdc69a49973623d5a580f3d, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5050009908773339245, guid: 3aeaa3811fdc69a49973623d5a580f3d, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5050009908773339245, guid: 3aeaa3811fdc69a49973623d5a580f3d, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5332168285177033755, guid: 3aeaa3811fdc69a49973623d5a580f3d, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -165442,6 +165454,30 @@ PrefabInstance:
     - target: {fileID: 6119470199213896835, guid: 3aeaa3811fdc69a49973623d5a580f3d, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6435287671471494701, guid: 3aeaa3811fdc69a49973623d5a580f3d, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6435287671471494701, guid: 3aeaa3811fdc69a49973623d5a580f3d, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6435287671471494701, guid: 3aeaa3811fdc69a49973623d5a580f3d, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6830973840886763906, guid: 3aeaa3811fdc69a49973623d5a580f3d, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6830973840886763906, guid: 3aeaa3811fdc69a49973623d5a580f3d, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6830973840886763906, guid: 3aeaa3811fdc69a49973623d5a580f3d, type: 3}
+      propertyPath: m_Color.r
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7186011352713596108, guid: 3aeaa3811fdc69a49973623d5a580f3d, type: 3}
       propertyPath: m_AnchorMax.y

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d27de263b48943b2bdb2bd14edde689d, type: 3}
   m_Name: SSO_ContactEnemySettings 1
   m_EditorClassIdentifier: 
-  Speed: 1
+  Speed: 0.5
   AttackRange: 1
   AttackCooldown: 1
   AttackDamage: 10

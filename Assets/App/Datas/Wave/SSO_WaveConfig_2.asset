@@ -16,5 +16,5 @@ MonoBehaviour:
   - {fileID: 487814550502994093, guid: 09147f2b97976294aac2077e39bc45d6, type: 3}
   EnemiesCount: 10
   Bursts:
-  - TimestampStart: 5
+  - TimestampStart: 10
     BurstCount: 25
