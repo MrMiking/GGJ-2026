@@ -48,10 +48,25 @@ MonoBehaviour:
   Level: 0
   m_StatEffects:
   - stat: 2
-    modifierType: 0
+    modifierType: 1
     statValuePerLevel:
-    - 0.5
-    - 0.5
-    - 1
-    - 1
-    - 1.5
+    - 0.1
+    - 0.1
+    - 0.1
+    - 0.1
+    - 0.1
+    - 0.1
+    - 0.1
+    - 0.1
+    - 0.1
+    - 0.1
+    - 0.1
+    - 0.1
+    - 0.1
+    - 0.1
+    - 0.1
+    - 0.1
+    - 0.1
+    - 0.1
+    - 0.1
+    - 0.1

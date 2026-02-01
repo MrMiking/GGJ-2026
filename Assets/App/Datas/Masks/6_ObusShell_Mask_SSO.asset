@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 6_ObusShell_Mask_SSO
   m_EditorClassIdentifier: 
   m_Rarity: 0
-  m_MaximumLevel: 5
+  m_MaximumLevel: 20
   m_Price: 5
   m_PricePerLevel:
   - 1
@@ -21,5 +21,20 @@ MonoBehaviour:
   - 5
   - 10
   - 20
+  - 2
+  - 2
+  - 2
+  - 2
+  - 2
+  - 2
+  - 2
+  - 2
+  - 2
+  - 2
+  - 2
+  - 2
+  - 2
+  - 2
+  - 2
   m_BehaviourPrefab: {fileID: -2610133214841175153, guid: 0bcf1e1f6d2a9cd4dae8bdb59ae50955, type: 3}
   m_Sprite: {fileID: 0}

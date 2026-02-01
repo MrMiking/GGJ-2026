@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: SSO_WaveConfig_4
   m_EditorClassIdentifier: 
   EnemiesPrefabs:
+  - {fileID: 487814550502994093, guid: 292bad002e95c6d4d856e3d8aea1aded, type: 3}
+  - {fileID: 487814550502994093, guid: eff2d25a23400d34fafc2c668228a299, type: 3}
   - {fileID: 487814550502994093, guid: 09147f2b97976294aac2077e39bc45d6, type: 3}
   EnemiesCount: 15
   Bursts:

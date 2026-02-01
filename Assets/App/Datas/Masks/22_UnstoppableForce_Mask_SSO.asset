@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 22_UnstoppableForce_Mask_SSO
   m_EditorClassIdentifier: 
   m_Rarity: 1
-  m_MaximumLevel: 5
+  m_MaximumLevel: 20
   m_Price: 34.99
   m_PricePerLevel:
   - 1
@@ -21,5 +21,20 @@ MonoBehaviour:
   - 5
   - 10
   - 20
+  - 2
+  - 2
+  - 2
+  - 2
+  - 2
+  - 2
+  - 2
+  - 2
+  - 2
+  - 2
+  - 2
+  - 2
+  - 2
+  - 2
+  - 2
   m_BehaviourPrefab: {fileID: -2610133214841175153, guid: 11d57985f555d5046ab626c986cd2d10, type: 3}
   m_Sprite: {fileID: 0}

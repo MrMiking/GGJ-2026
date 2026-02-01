@@ -5,7 +5,7 @@ namespace GGJ2026
     [CreateAssetMenu(fileName = "New Mask", menuName = "GGJ2026/Mask")]
     public sealed class Mask : ScriptableObject
     {
-        public const int MaximumMaskLevel = 5;
+        public const int MaximumMaskLevel = 20;
 
         [Header("Properties")]
         [SerializeField] private MaskRarity m_Rarity;

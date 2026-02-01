@@ -47,11 +47,26 @@ MonoBehaviour:
   Mask: {fileID: 11400000, guid: 5265e137be9aac948ad0f9026ad10526, type: 2}
   Level: 0
   m_StatEffects:
-  - stat: 2
+  - stat: 5
     modifierType: 1
     statValuePerLevel:
-    - 2
-    - 3
-    - 4
-    - 4
-    - 5
+    - 0.2
+    - 0.2
+    - 0.2
+    - 0.2
+    - 0.2
+    - 0.2
+    - 0.2
+    - 0.2
+    - 0.2
+    - 0.2
+    - 0.2
+    - 0.2
+    - 0.2
+    - 0.2
+    - 0.2
+    - 0.2
+    - 0.2
+    - 0.2
+    - 0.2
+    - 1

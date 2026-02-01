@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 2735192378021667322}
   - component: {fileID: 717599754301197818}
   m_Layer: 6
-  m_Name: BasicEnemy
+  m_Name: HugeEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32,7 +32,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.75, y: 0.75, z: 0.75}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3944642042026435826}
@@ -88,7 +88,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Health: {fileID: 2735192378021667322}
-  m_ContactEnemySettings: {fileID: 11400000, guid: a0b213013039552449b814df3979697c, type: 2}
+  m_ContactEnemySettings: {fileID: 11400000, guid: ee6f4915caac42349ac85ddbd781b3fe, type: 2}
   m_NavMeshAgent: {fileID: 6812247506224723449}
 --- !u!195 &6812247506224723449
 NavMeshAgent:
@@ -136,8 +136,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b1b020767fc69c4784fd5f328778e26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_MaxHealth: 100
-  m_CurrentHealth: 100
+  m_MaxHealth: 1000
+  m_CurrentHealth: 1000
   OnDamageEvent:
     m_PersistentCalls:
       m_Calls:
@@ -186,8 +186,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6620060d5f195e4591d729643fa7734, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_MinGoldAmount: 1
-  m_MaxGoldAmount: 1
+  m_MinGoldAmount: 5
+  m_MaxGoldAmount: 20
   m_FoodProbability: 0.02
   FoodPrefab: {fileID: 8630149311980692033, guid: 0c65ab9c4601c1b4cbd926d92d78f25a, type: 3}
 --- !u!1 &1166202448236147293
@@ -673,7 +673,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
-  m_Color: {r: 1, g: 0.504717, b: 0.504717, a: 1}
+  m_Color: {r: 1, g: 0.8244022, b: 0.11792451, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
