@@ -10,6 +10,7 @@ public class PlayerController : RegularSingleton<PlayerController>
     [SerializeField] Transform attackPoint;
     [SerializeField] Bullet bulletPrefabRb;
     [SerializeField] Transform m_AimTarget;
+    [SerializeField] Health playerHealth;
 
     [Header("Input Actions")]
     [SerializeField] private InputActionReference moveIA;
@@ -33,6 +34,8 @@ public class PlayerController : RegularSingleton<PlayerController>
 
     public bool canShoot = true;
 
+    public Health PlayerHealth => playerHealth;
+    
     protected override void Awake()
     {
         base.Awake();

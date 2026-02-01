@@ -94,8 +94,9 @@ namespace GGJ2026
         {
             Mask mask = slot.CurrentMask;
 
+            if (mask == null) return;
 
-            // Temporary for timothée to balance the game
+            // Temporary for timothï¿½e to balance the game
             // Maybe change by locking the slot
             int level = GetMaskLevelInInventory(mask);
             int price = Mathf.CeilToInt(mask.Price * mask.PricePerLevel[level]);
