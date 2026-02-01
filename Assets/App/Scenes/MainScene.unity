@@ -760,7 +760,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: $10
+  m_text: $39,99
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1396,7 +1396,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: $10
+  m_text: $149,99
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1532,7 +1532,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Reroll $5
+  m_text: Reroll $2
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -3659,7 +3659,7 @@ MonoBehaviour:
   - {fileID: 1737359786}
   - {fileID: 619822080}
   m_PriceText: {fileID: 200846826}
-  CurrentMask: {fileID: 0}
+  CurrentMask: {fileID: 11400000, guid: 06b1dfa2d50fced4187488433086a867, type: 2}
 --- !u!224 &406045383
 RectTransform:
   m_ObjectHideFlags: 0
@@ -110531,7 +110531,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8f5b9fb558fb5a42a2810160f8ff60b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_StartGold: 999
+  m_StartGold: 0
   m_CurrentGold: 0
 --- !u!1001 &811063603
 PrefabInstance:
@@ -110814,7 +110814,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: $10
+  m_text: $29,99
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -112746,7 +112746,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1275849465
 RectTransform:
   m_ObjectHideFlags: 0
@@ -113587,7 +113587,7 @@ MonoBehaviour:
   - {fileID: 1568234416}
   - {fileID: 1122218463}
   m_PriceText: {fileID: 140410179}
-  CurrentMask: {fileID: 0}
+  CurrentMask: {fileID: 11400000, guid: c37d56c56e1338142b5e6c5c1ba8be3d, type: 2}
 --- !u!224 &1414173688
 RectTransform:
   m_ObjectHideFlags: 0
@@ -113768,7 +113768,7 @@ MonoBehaviour:
   - {fileID: 749438563}
   - {fileID: 1539811645}
   m_PriceText: {fileID: 831224960}
-  CurrentMask: {fileID: 0}
+  CurrentMask: {fileID: 11400000, guid: 10565ede7121f0248aa8b9668c942264, type: 2}
 --- !u!224 &1453056318
 RectTransform:
   m_ObjectHideFlags: 0
@@ -114567,7 +114567,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1545842311
 RectTransform:
   m_ObjectHideFlags: 0
@@ -170767,7 +170767,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1926551275
 RectTransform:
   m_ObjectHideFlags: 0

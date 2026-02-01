@@ -44,6 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 254b68450344fa7499372b007c175911, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Mask: {fileID: 11400000, guid: 10565ede7121f0248aa8b9668c942264, type: 2}
+  Level: 0
   m_StatEffects:
   - stat: 1
     modifierType: 1
@@ -53,11 +55,3 @@ MonoBehaviour:
     - 1
     - 1.5
     - 2
-  - stat: 6
-    modifierType: 1
-    statValuePerLevel:
-    - -0.3
-    - -0.3
-    - -0.4
-    - -0.4
-    - -0.5
