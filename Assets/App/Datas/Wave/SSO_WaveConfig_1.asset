@@ -20,4 +20,4 @@ MonoBehaviour:
   EnemiesCount: 10
   Bursts:
   - TimestampStart: 10
-    BurstCount: 10
+    BurstCount: 20
