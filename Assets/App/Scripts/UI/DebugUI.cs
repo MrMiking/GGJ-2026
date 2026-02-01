@@ -56,6 +56,11 @@ namespace GGJ2026
                     PlayerController.Instance.PlayerHealth.ToggleInvincibility();
                 }
 
+                if (GUILayout.Button("Skip Wave"))
+                {
+                    GameSequencer.Instance.ForceSkipWave();
+                }
+
                 GUILayout.EndArea();
             }
         }

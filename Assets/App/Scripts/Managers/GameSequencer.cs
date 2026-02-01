@@ -17,6 +17,8 @@ namespace GGJ2026
         [SerializeField] private InputActionReference m_InputActionReference;
         [SerializeField] private bool m_AutoStart = true;
 
+        private bool m_ForceSkipWave = false;
+        
         public float TimerBeforeShop => m_TimerBeforeShop;
 
         private IEnumerator Start()
@@ -37,6 +39,11 @@ namespace GGJ2026
                 yield return null;
             }
             StartCoroutine(GameLoop());
+        }
+
+        public void ForceSkipWave()
+        {
+            m_ForceSkipWave = true;
         }
         
         private IEnumerator GameLoop()
@@ -78,6 +85,11 @@ namespace GGJ2026
             while (timer < m_TimerBeforeShop && GameTimeline.Instance.CurrentTimelineEvent != GameTimeline.TimelineEvent.Defeat)
             {
                 timer += Time.deltaTime;
+                if (m_ForceSkipWave)
+                {
+                    timer = m_TimerBeforeShop;
+                    m_ForceSkipWave = false;
+                }
                 yield return null;
             }
         }
