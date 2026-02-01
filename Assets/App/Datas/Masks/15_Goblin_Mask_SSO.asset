@@ -37,4 +37,6 @@ MonoBehaviour:
   - 2
   - 2
   m_BehaviourPrefab: {fileID: -2610133214841175153, guid: 2cf0588ca8556254c83f4b25135f70d7, type: 3}
-  m_Sprite: {fileID: 0}
+  m_DisplayName: Goblin
+  m_Description: 
+  m_Sprite: {fileID: 21300000, guid: d558bc4fb51c9c14db76029e809705ce, type: 3}

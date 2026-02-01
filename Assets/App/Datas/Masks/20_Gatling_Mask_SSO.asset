@@ -37,4 +37,6 @@ MonoBehaviour:
   - 2
   - 2
   m_BehaviourPrefab: {fileID: -2610133214841175153, guid: 5e800e51c2c8a734f8ed2159370bdb93, type: 3}
-  m_Sprite: {fileID: 0}
+  m_DisplayName: Gatling
+  m_Description: 
+  m_Sprite: {fileID: 21300000, guid: 5881121d016c5ec4ea32cce8efaf1f42, type: 3}

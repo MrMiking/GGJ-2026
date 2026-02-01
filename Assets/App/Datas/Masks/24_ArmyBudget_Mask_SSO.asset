@@ -37,4 +37,6 @@ MonoBehaviour:
   - 2
   - 2
   m_BehaviourPrefab: {fileID: -2610133214841175153, guid: 83850ffa75f32e745a214365ba51c095, type: 3}
-  m_Sprite: {fileID: 0}
+  m_DisplayName: Army Budget
+  m_Description: 
+  m_Sprite: {fileID: 21300000, guid: 6e74811d31dc45d4c8462a3e4427327f, type: 3}

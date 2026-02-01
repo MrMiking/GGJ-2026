@@ -37,4 +37,6 @@ MonoBehaviour:
   - 2
   - 2
   m_BehaviourPrefab: {fileID: -2610133214841175153, guid: 48e86a8cbe8387944bcdb83e221fd894, type: 3}
-  m_Sprite: {fileID: 0}
+  m_DisplayName: Fast Hammer
+  m_Description: 
+  m_Sprite: {fileID: 21300000, guid: a2e59628a63c03444a620ec1e1619e64, type: 3}
