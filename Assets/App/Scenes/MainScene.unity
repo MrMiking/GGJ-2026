@@ -166366,6 +166366,41 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4317500975590930399, guid: 31c25f84073e1ed40af5879204266766, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 2198473908392b74c8ad23d68bec3ce0, type: 2}
+    - target: {fileID: 4317500975590930399, guid: 31c25f84073e1ed40af5879204266766, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -3778099184021749009, guid: 2198473908392b74c8ad23d68bec3ce0, type: 2}
+    - target: {fileID: 4317500975590930399, guid: 31c25f84073e1ed40af5879204266766, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6023227252052333632, guid: 31c25f84073e1ed40af5879204266766, type: 3}
+      propertyPath: m_text
+      value: 'Bullet Damage + 150%
+
+        Bullet Damage + 150%
+
+        Bullet
+        Damage + 150%
+
+        Bullet Damage + 150%'
+      objectReference: {fileID: 0}
+    - target: {fileID: 6023227252052333632, guid: 31c25f84073e1ed40af5879204266766, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 2198473908392b74c8ad23d68bec3ce0, type: 2}
+    - target: {fileID: 6023227252052333632, guid: 31c25f84073e1ed40af5879204266766, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -3778099184021749009, guid: 2198473908392b74c8ad23d68bec3ce0, type: 2}
+    - target: {fileID: 6023227252052333632, guid: 31c25f84073e1ed40af5879204266766, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6963058240097707694, guid: 31c25f84073e1ed40af5879204266766, type: 3}
       propertyPath: m_Name
       value: Canvas_Tooltip
