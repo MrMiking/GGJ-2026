@@ -1,4 +1,3 @@
-using UnityEditor.ShaderGraph.Legacy;
 using UnityEngine;
 
 namespace GGJ2026
