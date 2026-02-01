@@ -32,5 +32,10 @@ namespace GGJ2026
         public virtual void OnLevelChange()
         {
         }
+
+        public virtual string GetFormattedDescription()
+        {
+            return Mask.Description;
+        }
     }
 }

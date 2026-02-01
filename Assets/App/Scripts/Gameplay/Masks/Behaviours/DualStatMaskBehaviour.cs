@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using UnityEngine;
 
 namespace GGJ2026
@@ -60,6 +61,30 @@ namespace GGJ2026
                     stat.AddModifier(new StatModifier(value, statEffect.modifierType, this));
                 }
             }
+        }
+
+        public override string GetFormattedDescription()
+        {
+            static string FormatSigned(float value)
+            {
+                return value.ToString("+0.##;-0.##");
+            }
+
+            var args = m_StatEffects.Select(effect =>
+            {
+                switch (effect.modifierType)
+                {
+                    case StatModifierType.Flat: 
+                        
+                        return FormatSigned(effect.statValuePerLevel[Level]);
+                    case StatModifierType.PercentAdd:
+                        return FormatSigned(effect.statValuePerLevel[Level] * 100f) + "%";
+                    case StatModifierType.PercentMult: 
+                        return FormatSigned(effect.statValuePerLevel[Level] * 100f) + "%";
+                }
+                return "?";
+            }).ToArray();
+            return string.Format(Mask.Description, args);
         }
 
         private void OnDestroy()
