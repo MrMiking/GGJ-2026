@@ -44,10 +44,12 @@ namespace GGJ2026
             m_Icon.enabled = false;
             m_PriceText.enabled = false;
             foreach(var star in m_StarVisuals) star.SetActive(false);
+            MaskTooltip.Instance.Hide();
         }
 
         public void OnPointerEnter(PointerEventData eventData)
         {
+            if (CurrentMask == null) return;
             MaskTooltip.Instance.Show(CurrentMask, m_CurrentLevel);
         }
 
