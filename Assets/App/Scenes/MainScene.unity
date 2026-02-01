@@ -3523,8 +3523,8 @@ TilemapRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1600344429
+  m_SortingLayer: -1
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -110013,22 +110013,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaveManager
       objectReference: {fileID: 0}
-    - target: {fileID: 1196859286373791974, guid: 0d326b2bd93a31c41a9d74ee5f4af6a6, type: 3}
-      propertyPath: m_WavesConfig.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 1196859286373791974, guid: 0d326b2bd93a31c41a9d74ee5f4af6a6, type: 3}
-      propertyPath: 'm_WavesConfig.Array.data[1]'
-      value: 
-      objectReference: {fileID: 11400000, guid: 602218b910e64824aa4202ee97cf2e1b, type: 2}
-    - target: {fileID: 1196859286373791974, guid: 0d326b2bd93a31c41a9d74ee5f4af6a6, type: 3}
-      propertyPath: 'm_WavesConfig.Array.data[2]'
-      value: 
-      objectReference: {fileID: 11400000, guid: de14650529286cb41857af9a66229afb, type: 2}
-    - target: {fileID: 1196859286373791974, guid: 0d326b2bd93a31c41a9d74ee5f4af6a6, type: 3}
-      propertyPath: 'm_WavesConfig.Array.data[3]'
-      value: 
-      objectReference: {fileID: 11400000, guid: 73c46b9c68f7f0645b8b61db82832494, type: 2}
     - target: {fileID: 2861532121476019658, guid: 0d326b2bd93a31c41a9d74ee5f4af6a6, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -110727,8 +110711,8 @@ TilemapRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1600344429
+  m_SortingLayer: -1
   m_SortingOrder: 1
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}

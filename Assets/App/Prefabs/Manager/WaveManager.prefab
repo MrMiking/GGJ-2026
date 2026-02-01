@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1010612470751156809}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -46,6 +46,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_WavesConfig:
   - {fileID: 11400000, guid: cb3da9e97823678468ebe0d989fff278, type: 2}
+  - {fileID: 11400000, guid: 602218b910e64824aa4202ee97cf2e1b, type: 2}
+  - {fileID: 11400000, guid: de14650529286cb41857af9a66229afb, type: 2}
+  - {fileID: 11400000, guid: 73c46b9c68f7f0645b8b61db82832494, type: 2}
   m_RadiusSpawnOffset: 19.9
   m_SpawnDelay: 2
   m_AutoStartOnAwake: 0
