@@ -5,7 +5,7 @@ namespace GGJ2026
 {
     public sealed class MaskInventory : MonoBehaviour
     {
-        public const int InventorySize = 5;
+        public const int InventorySize = 7;
 
         [SerializeField] private Mask[] m_Masks = new Mask[InventorySize];
 

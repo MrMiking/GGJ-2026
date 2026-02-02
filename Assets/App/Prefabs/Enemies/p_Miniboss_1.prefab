@@ -156,8 +156,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b1b020767fc69c4784fd5f328778e26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_MaxHealth: 10000
-  m_CurrentHealth: 10000
+  m_MaxHealth: 3333.3333
+  m_CurrentHealth: 3333.3333
   OnDamageEvent:
     m_PersistentCalls:
       m_Calls:
@@ -238,16 +238,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21c2cb1068ba9aa4eadfb0d05d345b06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Health: {fileID: 0}
+  m_Health: {fileID: 2735192378021667322}
   m_MoveSpeed: 15
   m_DashRange: 4
   m_DashDistance: 8
   m_DashSpeed: 30
   m_DashCooldown: 3
-  m_DashPreparationTime: 3
-  m_ContactDamage: 20
+  m_DashPreparationTime: 1
+  m_ContactDamage: 10
   m_ContactKnockbackForce: 20
-  m_DashDamage: 60
+  m_DashDamage: 20
   m_DashKnockbackForce: 40
   m_Radius: 0.8
   m_DashLineRenderer: {fileID: 7287447858138736687}

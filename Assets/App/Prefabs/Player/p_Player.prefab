@@ -668,8 +668,8 @@ MonoBehaviour:
         Mode: 2
         MoveToScaleMin: {x: 1, y: 1, z: 1}
         MoveToScaleMax: {x: 2, y: 2, z: 2}
-        BumpScaleMin: {x: 20, y: 20, z: 20}
-        BumpScaleMax: {x: 30, y: 30, z: 30}
+        BumpScaleMin: {x: -20, y: -20, z: -20}
+        BumpScaleMax: {x: -30, y: -30, z: -30}
 --- !u!1 &1113472720945428499
 GameObject:
   m_ObjectHideFlags: 0
@@ -712,6 +712,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4042475980077019111}
   - component: {fileID: 7508423016893605091}
+  - component: {fileID: 1260245023254974728}
   m_Layer: 7
   m_Name: Visual
   m_TagString: Untagged
@@ -789,6 +790,28 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &1260245023254974728
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2042522306601273088}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 58224d65391a6224b9df47a84aa480f3, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &3706236725027899421
 GameObject:
   m_ObjectHideFlags: 0
@@ -947,7 +970,7 @@ MonoBehaviour:
   m_MovementSpeed: 10
   m_GoldLootRange: 1.5
   m_BulletDamage: 40
-  m_FireRate: 5
+  m_FireRate: 1
   m_BulletSpeed: 10
   m_BulletSize: 1
   m_BulletBounce: 0
@@ -1027,7 +1050,11 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   m_Behaviours:
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -1411,8 +1438,8 @@ MonoBehaviour:
         Damping: 0.85
         Frequency: 5
         Mode: 0
-        MoveToMin: 0.8
-        MoveToMax: 1.2
+        MoveToMin: 0.95
+        MoveToMax: 1.05
         BumpScaleMin: 1
         BumpScaleMax: 2
 --- !u!1001 &4806989038607481019
