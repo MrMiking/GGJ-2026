@@ -59,6 +59,8 @@ MonoBehaviour:
         Weight: 2
       - Value: {fileID: 11400000, guid: f9d8ad9d3682930418394d7208f3493f, type: 2}
         Weight: 2
+      - Value: {fileID: 11400000, guid: 975e6207e4914a943a004d9f73c24b63, type: 2}
+        Weight: 2
   - gameLevel: 1
     masks:
       entries:
@@ -80,6 +82,8 @@ MonoBehaviour:
         Weight: 1
       - Value: {fileID: 11400000, guid: 9a000f52f91791040a78c6dae2ee7ce1, type: 2}
         Weight: 1
+      - Value: {fileID: 11400000, guid: 975e6207e4914a943a004d9f73c24b63, type: 2}
+        Weight: 3
       - Value: {fileID: 11400000, guid: c0f17febf4ae6694093cacb185721730, type: 2}
         Weight: 3
   - gameLevel: 2
@@ -98,6 +102,8 @@ MonoBehaviour:
       - Value: {fileID: 11400000, guid: 65ddbdac65778c241a0acfcaa10b87a0, type: 2}
         Weight: 1
       - Value: {fileID: 11400000, guid: f9d8ad9d3682930418394d7208f3493f, type: 2}
+        Weight: 1
+      - Value: {fileID: 11400000, guid: 9a000f52f91791040a78c6dae2ee7ce1, type: 2}
         Weight: 1
       - Value: {fileID: 11400000, guid: 9a000f52f91791040a78c6dae2ee7ce1, type: 2}
         Weight: 1
